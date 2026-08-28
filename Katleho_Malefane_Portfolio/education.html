@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education · Katleho Malefane</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           THEME VARIABLES
+        ========================================================= */
+
+        html.light {
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #5b21b6;
+            --secondary: #06b6d4;
+            --accent: #8b5cf6;
+
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-nav: rgba(10, 10, 15, 0.97);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+
+            --border-color: #e2e8f0;
+
+            --shadow:
+                0 10px 25px -5px rgba(0, 0, 0, 0.05);
+
+            --shadow-hover:
+                0 20px 40px -12px rgba(124, 58, 237, 0.20);
+
+            --badge-bg: #ede9fe;
+            --badge-text: #5b21b6;
+
+            --glow-color: rgba(124, 58, 237, 0.08);
+
+            --toggle-bg: #cbd5e1;
+            --toggle-icon: #7c3aed;
+
+            --nav-text: #ffffff;
+            --nav-muted: rgba(255, 255, 255, 0.68);
+            --nav-hover: rgba(255, 255, 255, 0.08);
+            --nav-active: rgba(124, 58, 237, 0.18);
+
+            --separator-color: rgba(255, 255, 255, 0.12);
+        }
+
+        html.dark {
+            --primary: #a78bfa;
+            --primary-light: #c4b5fd;
+            --primary-dark: #8b5cf6;
+            --secondary: #22d3ee;
+            --accent: #c084fc;
+
+            --bg-body: #0a0a0f;
+            --bg-surface: #14141e;
+            --bg-nav: rgba(0, 0, 0, 0.98);
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #252540;
+
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            --border-color: #2d2d44;
+
+            --shadow:
+                0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+            --shadow-hover:
+                0 20px 40px -12px rgba(167, 139, 250, 0.25);
+
+            --badge-bg: #2d2d44;
+            --badge-text: #c4b5fd;
+
+            --glow-color: rgba(167, 139, 250, 0.12);
+
+            --toggle-bg: #3d3d5c;
+            --toggle-icon: #fbbf24;
+
+            --nav-text: #ffffff;
+            --nav-muted: rgba(255, 255, 255, 0.60);
+            --nav-hover: rgba(255, 255, 255, 0.08);
+            --nav-active: rgba(167, 139, 250, 0.16);
+
+            --separator-color: rgba(255, 255, 255, 0.10);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 82px;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 82px;
+
+            background: var(--bg-nav);
+
+            border-top: 3px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
+
+            z-index: 9999;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            transition:
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-container {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        /* =========================================================
+           BRAND
+        ========================================================= */
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: white;
+
+            font-weight: 900;
+            font-size: 1rem;
+
+            box-shadow:
+                0 8px 22px rgba(124, 58, 237, 0.35);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .logo-mark:hover {
+            transform:
+                translateY(-2px) scale(1.04);
+
+            box-shadow:
+                0 12px 28px rgba(124, 58, 237, 0.45);
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+        }
+
+        .logo {
+            color: var(--nav-text);
+
+            font-size: 1.42rem;
+            font-weight: 900;
+
+            letter-spacing: -0.045em;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--primary-light);
+        }
+
+        .brand-tagline {
+            margin-top: 7px;
+
+            font-size: 0.82rem;
+            font-weight: 700;
+
+            color: var(--nav-muted);
+
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           MAIN NAVIGATION
+        ========================================================= */
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 12px;
+
+            border-radius: 9px;
+
+            color: var(--nav-muted);
+
+            font-size: 0.78rem;
+            font-weight: 600;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav-link i {
+            font-size: 0.73rem;
+        }
+
+        .nav-link:hover {
+            color: var(--nav-text);
+            background: var(--nav-hover);
+
+            transform:
+                translateY(-1px);
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            background: var(--nav-active);
+        }
+
+        .nav-link.active i {
+            color: var(--primary-light);
+        }
+
+
+        /* =========================================================
+           DROPDOWN
+        ========================================================= */
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-toggle .arrow {
+            font-size: 0.55rem;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+
+            top: calc(100% + 12px);
+            right: 0;
+
+            min-width: 210px;
+
+            padding: 8px;
+
+            background: var(--bg-surface);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.18);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(-8px);
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .dropdown-menu::before {
+            content: "";
+
+            position: absolute;
+
+            top: -6px;
+            right: 22px;
+
+            width: 12px;
+            height: 12px;
+
+            background: var(--bg-surface);
+
+            border-left:
+                1px solid var(--border-color);
+
+            border-top:
+                1px solid var(--border-color);
+
+            transform:
+                rotate(45deg);
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0);
+        }
+
+        .dropdown:hover .arrow,
+        .dropdown.open .arrow {
+            transform:
+                rotate(180deg);
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            width: 100%;
+
+            padding: 11px 12px;
+
+            border-radius: 8px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .dropdown-link i {
+            width: 18px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .dropdown-link:hover {
+            background:
+                var(--bg-card-hover);
+
+            color:
+                var(--text-primary);
+
+            transform:
+                translateX(3px);
+        }
+
+
+        /* =========================================================
+           NAV ACTIONS
+        ========================================================= */
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+        }
+
+        .projects-btn {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
+            background: var(--primary);
+            color: white;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+
+            box-shadow:
+                0 6px 18px rgba(124, 58, 237, 0.30);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .projects-btn:hover {
+            background:
+                var(--primary-dark);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(124, 58, 237, 0.40);
+        }
+
+
+        /* =========================================================
+           THEME TOGGLE
+        ========================================================= */
+
+        .theme-toggle {
+            width: 44px;
+            height: 28px;
+
+            padding: 3px;
+
+            border:
+                1px solid var(--separator-color);
+
+            border-radius: 50px;
+
+            background:
+                var(--toggle-bg);
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+
+            transition:
+                background 0.3s ease;
+        }
+
+        .theme-slider {
+            width: 21px;
+            height: 21px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: white;
+            color: var(--toggle-icon);
+
+            font-size: 9px;
+
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+        html.dark .theme-toggle {
+            background:
+                #7c3aed;
+        }
+
+        html.dark .theme-slider {
+            transform:
+                translateX(14px);
+
+            background:
+                #1e293b;
+        }
+
+
+        /* =========================================================
+           HAMBURGER
+        ========================================================= */
+
+        .hamburger {
+            width: 42px;
+            height: 42px;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            border:
+                1px solid var(--separator-color);
+
+            border-radius: 9px;
+
+            background:
+                var(--nav-hover);
+
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 19px;
+            height: 2px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            transition:
+                all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform:
+                translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform:
+                translateY(-7px) rotate(-45deg);
+        }
+
+
+        /* =========================================================
+           EDUCATION HERO
+        ========================================================= */
+
+        #education {
+            min-height:
+                calc(100vh - 82px);
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                70px 0 90px;
+        }
+
+        #education::before {
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            right: -250px;
+            top: -180px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--glow-color) 0%,
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        #education::after {
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            left: -250px;
+            bottom: -220px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--glow-color) 0%,
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           PAGE HEADER
+        ========================================================= */
+
+        .page-header {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+
+            max-width: 760px;
+
+            margin:
+                0 auto 55px;
+        }
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                7px 13px;
+
+            margin-bottom: 18px;
+
+            background:
+                var(--badge-bg);
+
+            color:
+                var(--badge-text);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 50px;
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            animation:
+                fadeInUp 0.7s ease both;
+        }
+
+        .badge i {
+            font-size: 0.65rem;
+        }
+
+        .page-header h1 {
+            font-size:
+                clamp(2.4rem, 5vw, 4rem);
+
+            line-height: 1.05;
+
+            letter-spacing:
+                -0.055em;
+
+            font-weight: 900;
+
+            margin-bottom: 16px;
+
+            animation:
+                fadeInUp 0.7s 0.1s ease both;
+        }
+
+        .highlight {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color:
+                var(--text-secondary);
+
+            font-size:
+                1rem;
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto;
+
+            animation:
+                fadeInUp 0.7s 0.2s ease both;
+        }
+
+
+        /* =========================================================
+           EDUCATION GRID
+        ========================================================= */
+
+        .education-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.15fr)
+                minmax(320px, 0.85fr);
+
+            gap: 30px;
+
+            align-items: stretch;
+        }
+
+
+        /* =========================================================
+           MAIN DEGREE CARD
+        ========================================================= */
+
+        .degree-card {
+            position: relative;
+
+            background:
+                var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 22px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                var(--shadow);
+
+            overflow: hidden;
+
+            animation:
+                fadeInUp 0.8s 0.25s ease both;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .degree-card:hover {
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                var(--shadow-hover);
+
+            border-color:
+                var(--primary);
+        }
+
+        .degree-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+        .university-icon {
+            width: 68px;
+            height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: white;
+
+            font-size: 1.55rem;
+
+            margin-bottom: 23px;
+
+            box-shadow:
+                0 12px 28px rgba(124, 58, 237, 0.25);
+        }
+
+        .degree-card h2 {
+            font-size:
+                clamp(1.5rem, 3vw, 2rem);
+
+            line-height: 1.2;
+
+            font-weight: 850;
+
+            letter-spacing:
+                -0.035em;
+
+            margin-bottom: 9px;
+        }
+
+        .university-name {
+            font-size:
+                1.05rem;
+
+            font-weight: 800;
+
+            color:
+                var(--primary);
+
+            margin-bottom: 18px;
+        }
+
+        .education-meta {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            margin-bottom: 22px;
+        }
+
+        .meta-item {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                8px 11px;
+
+            border-radius: 9px;
+
+            background:
+                var(--bg-card-hover);
+
+            border:
+                1px solid var(--border-color);
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.76rem;
+
+            font-weight:
+                700;
+        }
+
+        .meta-item i {
+            color:
+                var(--primary);
+        }
+
+        .degree-description {
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.94rem;
+
+            margin-bottom: 25px;
+
+            max-width:
+                720px;
+        }
+
+        .degree-description strong {
+            color:
+                var(--text-primary);
+        }
+
+
+        /* =========================================================
+           SPECIALIZATION
+        ========================================================= */
+
+        .specialization {
+            padding-top:
+                24px;
+
+            border-top:
+                1px solid var(--border-color);
+        }
+
+        .specialization h3 {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            font-size:
+                0.95rem;
+
+            margin-bottom:
+                15px;
+        }
+
+        .specialization h3 i {
+            color:
+                var(--primary);
+        }
+
+        .focus-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                10px;
+        }
+
+        .focus-item {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                12px 13px;
+
+            border-radius:
+                11px;
+
+            background:
+                var(--bg-body);
+
+            border:
+                1px solid var(--border-color);
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.8rem;
+
+            font-weight:
+                650;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .focus-item:hover {
+            transform:
+                translateX(4px);
+
+            border-color:
+                var(--primary);
+
+            color:
+                var(--text-primary);
+        }
+
+        .focus-item i {
+            color:
+                var(--primary);
+
+            width:
+                18px;
+
+            text-align:
+                center;
+        }
+
+
+        /* =========================================================
+           RIGHT SIDE
+        ========================================================= */
+
+        .education-side {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+            animation:
+                fadeInUp 0.8s 0.4s ease both;
+        }
+
+        .info-card {
+            flex: 1;
+
+            padding:
+                28px;
+
+            border-radius:
+                20px;
+
+            background:
+                var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-hover);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                var(--badge-bg);
+
+            color:
+                var(--primary);
+
+            margin-bottom:
+                18px;
+
+            font-size:
+                1.1rem;
+        }
+
+        .info-card h3 {
+            font-size:
+                1.05rem;
+
+            margin-bottom:
+                8px;
+
+            font-weight:
+                800;
+        }
+
+        .info-card p {
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.84rem;
+        }
+
+
+        /* =========================================================
+           CURRENT STATUS
+        ========================================================= */
+
+        .current-status {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top:
+                18px;
+
+            padding:
+                13px;
+
+            border-radius:
+                11px;
+
+            background:
+                var(--badge-bg);
+
+            color:
+                var(--badge-text);
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                750;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background:
+                #22c55e;
+
+            box-shadow:
+                0 0 0 5px rgba(34, 197, 94, 0.12);
+
+            animation:
+                pulse 2s infinite;
+        }
+
+
+        /* =========================================================
+           LEARNING PATH
+        ========================================================= */
+
+        .learning-path {
+            position: relative;
+            z-index: 2;
+
+            margin-top:
+                30px;
+
+            padding:
+                30px;
+
+            background:
+                var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                var(--shadow);
+
+            animation:
+                fadeInUp 0.8s 0.5s ease both;
+        }
+
+        .learning-path-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom:
+                22px;
+        }
+
+        .learning-path-header i {
+            color:
+                var(--primary);
+
+            font-size:
+                1.15rem;
+        }
+
+        .learning-path-header h3 {
+            font-size:
+                1.05rem;
+
+            font-weight:
+                800;
+        }
+
+        .path-items {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 12px;
+        }
+
+        .path-item {
+            position: relative;
+
+            padding:
+                18px;
+
+            border-radius:
+                13px;
+
+            background:
+                var(--bg-body);
+
+            border:
+                1px solid var(--border-color);
+
+            text-align:
+                center;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .path-item:hover {
+            transform:
+                translateY(-4px);
+
+            border-color:
+                var(--primary);
+        }
+
+        .path-number {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin:
+                0 auto 10px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: white;
+
+            font-size:
+                0.75rem;
+
+            font-weight:
+                800;
+        }
+
+        .path-item strong {
+            display: block;
+
+            font-size:
+                0.78rem;
+
+            margin-bottom:
+                3px;
+        }
+
+        .path-item span {
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.7rem;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding:
+                25px 0;
+
+            text-align:
+                center;
+
+            background:
+                var(--bg-surface);
+
+            border-top:
+                1px solid var(--border-color);
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.8rem;
+        }
+
+        footer a {
+            color:
+                var(--primary);
+
+            transition:
+                opacity 0.2s ease;
+        }
+
+        footer a:hover {
+            opacity:
+                0.7;
+        }
+
+        .footer-links {
+            margin-top:
+                7px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+        }
+
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        @keyframes fadeInUp {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.15);
+            }
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .nav-link {
+                padding:
+                    8px;
+            }
+
+            .nav-link span {
+                display:
+                    none;
+            }
+
+            .nav-link i {
+                font-size:
+                    0.8rem;
+            }
+
+            .nav-link.active span {
+                display:
+                    inline;
+            }
+
+            .education-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .education-side {
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .path-items {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            body {
+                padding-top:
+                    74px;
+            }
+
+            .navbar {
+                height:
+                    74px;
+
+                border-top:
+                    3px solid var(--primary);
+
+                border-bottom:
+                    3px solid var(--primary);
+            }
+
+            .logo-mark {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo {
+                font-size:
+                    1.18rem;
+            }
+
+            .brand-tagline {
+                font-size:
+                    0.68rem;
+
+                margin-top:
+                    5px;
+            }
+
+            .main-nav {
+                position:
+                    fixed;
+
+                top:
+                    74px;
+
+                left:
+                    0;
+
+                width:
+                    100%;
+
+                padding:
+                    18px 20px 25px;
+
+                background:
+                    var(--bg-nav);
+
+                border-bottom:
+                    3px solid var(--primary);
+
+                box-shadow:
+                    0 20px 35px rgba(0, 0, 0, 0.25);
+
+                opacity:
+                    0;
+
+                visibility:
+                    hidden;
+
+                transform:
+                    translateY(-15px);
+
+                transition:
+                    opacity 0.3s ease,
+                    visibility 0.3s ease,
+                    transform 0.3s ease;
+            }
+
+            .main-nav.open {
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                transform:
+                    translateY(0);
+            }
+
+            .nav-links {
+                width:
+                    100%;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                gap:
+                    5px;
+            }
+
+            .nav-link {
+                width:
+                    100%;
+
+                padding:
+                    12px 14px;
+
+                justify-content:
+                    flex-start;
+
+                font-size:
+                    0.85rem;
+            }
+
+            .nav-link span {
+                display:
+                    inline;
+            }
+
+            .dropdown-menu {
+                position:
+                    static;
+
+                width:
+                    100%;
+
+                margin-top:
+                    4px;
+
+                padding-left:
+                    10px;
+
+                display:
+                    none;
+
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                transform:
+                    none;
+
+                box-shadow:
+                    none;
+
+                background:
+                    transparent;
+
+                border:
+                    none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display:
+                    block;
+            }
+
+            .dropdown-menu::before {
+                display:
+                    none;
+            }
+
+            .dropdown-link {
+                color:
+                    var(--nav-muted);
+            }
+
+            .hamburger {
+                display:
+                    flex;
+            }
+
+            .projects-btn span {
+                display:
+                    none;
+            }
+
+            .projects-btn {
+                width:
+                    42px;
+
+                height:
+                    42px;
+
+                padding:
+                    0;
+
+                justify-content:
+                    center;
+            }
+
+            #education {
+                padding:
+                    50px 0 70px;
+            }
+
+            .page-header {
+                margin-bottom:
+                    35px;
+            }
+
+            .degree-card {
+                padding:
+                    27px;
+            }
+
+            .focus-list {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .education-side {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 480px) {
+
+            .container {
+                width:
+                    min(100% - 28px, 1180px);
+            }
+
+            .logo-mark {
+                width:
+                    38px;
+
+                height:
+                    38px;
+            }
+
+            .logo {
+                font-size:
+                    1.02rem;
+            }
+
+            .brand-tagline {
+                font-size:
+                    0.61rem;
+            }
+
+            .nav-actions {
+                gap:
+                    5px;
+            }
+
+            .theme-toggle {
+                width:
+                    38px;
+
+                height:
+                    24px;
+            }
+
+            .theme-slider {
+                width:
+                    18px;
+
+                height:
+                    18px;
+            }
+
+            html.dark .theme-slider {
+                transform:
+                    translateX(12px);
+            }
+
+            .hamburger {
+                width:
+                    38px;
+
+                height:
+                    38px;
+            }
+
+            .page-header h1 {
+                font-size:
+                    2.2rem;
+            }
+
+            .page-header p {
+                font-size:
+                    0.9rem;
+            }
+
+            .degree-card {
+                padding:
+                    22px;
+            }
+
+            .degree-card h2 {
+                font-size:
+                    1.4rem;
+            }
+
+            .education-meta {
+                flex-direction:
+                    column;
+            }
+
+            .meta-item {
+                width:
+                    100%;
+            }
+
+            .info-card {
+                padding:
+                    23px;
+            }
+
+            .learning-path {
+                padding:
+                    22px;
+            }
+
+            .path-items {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior:
+                    auto !important;
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="navbar" id="navbar">
+
+    <div class="container nav-container">
+
+        <!-- BRAND -->
+
+        <div class="nav-brand">
+
+            <a href="index.html" class="logo-mark">
+                KM
+            </a>
+
+            <div class="brand-info">
+
+                <a href="index.html" class="logo">
+                    Katleho <span>Malefane</span>
+                </a>
+
+                <span class="brand-tagline">
+                    Software Engineer
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <div class="main-nav" id="mainNav">
+
+            <ul class="nav-links">
+
+                <li class="nav-item">
+
+                    <a href="index.html"
+                       class="nav-link">
+
+                        <i class="fas fa-house"></i>
+                        <span>Home</span>
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a href="about.html"
+                       class="nav-link">
+
+                        <i class="fas fa-user"></i>
+                        <span>About</span>
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a href="education.html"
+                       class="nav-link active">
+
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Education</span>
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a href="skills.html"
+                       class="nav-link">
+
+                        <i class="fas fa-code"></i>
+                        <span>Skills</span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- MORE -->
+
+                <li class="nav-item dropdown"
+                    id="moreDropdown">
+
+                    <a href="#"
+                       class="nav-link dropdown-toggle"
+                       id="moreToggle">
+
+                        <i class="fas fa-layer-group"></i>
+
+                        <span>More</span>
+
+                        <i class="fas fa-chevron-down arrow"></i>
+
+                    </a>
+
+
+                    <div class="dropdown-menu">
+
+                        <a href="projects.html"
+                           class="dropdown-link">
+
+                            <i class="fas fa-folder-open"></i>
+                            <span>Projects</span>
+
+                        </a>
+
+
+                        <a href="certificates.html"
+                           class="dropdown-link">
+
+                            <i class="fas fa-certificate"></i>
+                            <span>Certificates</span>
+
+                        </a>
+
+
+                        <a href="cv.html"
+                           class="dropdown-link">
+
+                            <i class="fas fa-file-lines"></i>
+                            <span>Curriculum Vitae</span>
+
+                        </a>
+
+
+                        <a href="cover-letters.html"
+                           class="dropdown-link">
+
+                            <i class="fas fa-envelope"></i>
+                            <span>Cover Letters</span>
+
+                        </a>
+
+
+                        <a href="contact.html"
+                           class="dropdown-link">
+
+                            <i class="fas fa-address-card"></i>
+                            <span>Contact Me</span>
+
+                        </a>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+
+            <a href="projects.html"
+               class="projects-btn">
+
+                <i class="fas fa-folder-open"></i>
+
+                <span>Projects</span>
+
+            </a>
+
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle dark and light mode"
+                title="Toggle theme">
+
+                <span
+                    class="theme-slider"
+                    id="toggleIcon">
+
+                    <i class="fas fa-sun"></i>
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="hamburger"
+                id="hamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<main>
+
+<section id="education">
+
+    <div class="container">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <span class="badge">
+
+                <i class="fas fa-graduation-cap"></i>
+
+                Academic Journey
+
+            </span>
+
+
+            <h1>
+
+                My
+
+                <span class="highlight">
+                    Education
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                My academic journey is focused on building a strong
+                foundation in software engineering, technology and
+                practical problem-solving.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- EDUCATION GRID -->
+
+        <div class="education-grid">
+
+
+            <!-- MAIN DEGREE -->
+
+            <article class="degree-card">
+
+                <div class="university-icon">
+
+                    <i class="fas fa-university"></i>
+
+                </div>
+
+
+                <h2>
+                    Bachelor of Science in Software Engineering
+                </h2>
+
+
+                <div class="university-name">
+
+                    Botho University
+
+                </div>
+
+
+                <div class="education-meta">
+
+                    <span class="meta-item">
+
+                        <i class="fas fa-building-columns"></i>
+
+                        Faculty of Engineering &amp; Technology
+
+                    </span>
+
+
+                    <span class="meta-item">
+
+                        <i class="fas fa-layer-group"></i>
+
+                        Year 4
+
+                    </span>
+
+
+                    <span class="meta-item">
+
+                        <i class="fas fa-laptop-code"></i>
+
+                        Software Engineering
+
+                    </span>
+
+                </div>
+
+
+                <p class="degree-description">
+
+                    I am currently a <strong>Year 4 student at Botho
+                    University</strong> in the Faculty of Engineering
+                    &amp; Technology, pursuing my studies in
+                    <strong>Software Engineering</strong>.
+
+                    My main academic and professional focus is software
+                    development, where I am developing the knowledge and
+                    practical skills required to design, build and
+                    deploy software solutions.
+
+                </p>
+
+
+                <!-- SPECIALIZATION -->
+
+                <div class="specialization">
+
+                    <h3>
+
+                        <i class="fas fa-bullseye"></i>
+
+                        Areas of Focus
+
+                    </h3>
+
+
+                    <div class="focus-list">
+
+
+                        <div class="focus-item">
+
+                            <i class="fas fa-code"></i>
+
+                            <span>
+                                Software Development
+                            </span>
+
+                        </div>
+
+
+                        <div class="focus-item">
+
+                            <i class="fas fa-laptop-code"></i>
+
+                            <span>
+                                Software Engineering
+                            </span>
+
+                        </div>
+
+
+                        <div class="focus-item">
+
+                            <i class="fas fa-shield-halved"></i>
+
+                            <span>
+                                Cybersecurity
+                            </span>
+
+                        </div>
+
+
+                        <div class="focus-item">
+
+                            <i class="fas fa-network-wired"></i>
+
+                            <span>
+                                Networking Basics
+                            </span>
+
+                        </div>
+
+
+                        <div class="focus-item">
+
+                            <i class="fas fa-chart-column"></i>
+
+                            <span>
+                                Data Analysis
+                            </span>
+
+                        </div>
+
+
+                        <div class="focus-item">
+
+                            <i class="fas fa-lightbulb"></i>
+
+                            <span>
+                                Technology &amp; Problem Solving
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- RIGHT INFORMATION -->
+
+            <div class="education-side">
+
+
+                <!-- CURRENT STATUS -->
+
+                <article class="info-card">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-user-graduate"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Current Academic Status
+                    </h3>
+
+
+                    <p>
+
+                        Currently progressing through
+                        <strong>Year 4</strong> of my Software Engineering
+                        studies at Botho University.
+
+                    </p>
+
+
+                    <div class="current-status">
+
+                        <span class="status-dot"></span>
+
+                        Currently studying
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SPECIALIZATION -->
+
+                <article class="info-card">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-laptop-code"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Primary Specialization
+                    </h3>
+
+
+                    <p>
+
+                        My primary specialization is
+                        <strong>software development and software
+                        engineering</strong>, with an interest in building
+                        practical and user-focused digital solutions.
+
+                    </p>
+
+                </article>
+
+
+
+                <!-- SUPPORTING KNOWLEDGE -->
+
+                <article class="info-card">
+
+                    <div class="info-icon">
+
+                        <i class="fas fa-layer-group"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Supporting Knowledge
+                    </h3>
+
+
+                    <p>
+
+                        My studies have also exposed me to
+                        <strong>cybersecurity, networking fundamentals and
+                        data analysis</strong>, giving me a broader
+                        understanding of technology.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             DEVELOPMENT JOURNEY
+        ====================================================== -->
+
+        <div class="learning-path">
+
+            <div class="learning-path-header">
+
+                <i class="fas fa-route"></i>
+
+                <h3>
+                    My Development Journey
+                </h3>
+
+            </div>
+
+
+            <div class="path-items">
+
+
+                <div class="path-item">
+
+                    <div class="path-number">
+                        01
+                    </div>
+
+                    <strong>
+                        Engineering
+                    </strong>
+
+                    <span>
+                        Technical foundation
+                    </span>
+
+                </div>
+
+
+                <div class="path-item">
+
+                    <div class="path-number">
+                        02
+                    </div>
+
+                    <strong>
+                        Software
+                    </strong>
+
+                    <span>
+                        Development focus
+                    </span>
+
+                </div>
+
+
+                <div class="path-item">
+
+                    <div class="path-number">
+                        03
+                    </div>
+
+                    <strong>
+                        Technology
+                    </strong>
+
+                    <span>
+                        Broader IT knowledge
+                    </span>
+
+                </div>
+
+
+                <div class="path-item">
+
+                    <div class="path-number">
+                        04
+                    </div>
+
+                    <strong>
+                        Developer
+                    </strong>
+
+                    <span>
+                        Building practical solutions
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+
+            &copy; 2026 Katleho Malefane.
+
+            Built with
+
+            <i
+                class="fas fa-heart"
+                style="color: var(--primary);">
+            </i>
+
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <span>·</span>
+
+            <a href="about.html">About</a>
+
+            <span>·</span>
+
+            <a href="education.html">Education</a>
+
+            <span>·</span>
+
+            <a href="skills.html">Skills</a>
+
+            <span>·</span>
+
+            <a href="projects.html">Projects</a>
+
+            <span>·</span>
+
+            <a href="certificates.html">Certificates</a>
+
+            <span>·</span>
+
+            <a href="cv.html">CV</a>
+
+            <span>·</span>
+
+            <a href="cover-letters.html">Cover Letters</a>
+
+            <span>·</span>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const html =
+        document.documentElement;
+
+    const navbar =
+        document.getElementById("navbar");
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    const toggleIcon =
+        document.getElementById("toggleIcon");
+
+    const hamburger =
+        document.getElementById("hamburger");
+
+    const mainNav =
+        document.getElementById("mainNav");
+
+    const moreDropdown =
+        document.getElementById("moreDropdown");
+
+    const moreToggle =
+        document.getElementById("moreToggle");
+
+
+    /* =====================================================
+       THEME
+    ===================================================== */
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+
+    if (savedTheme === "dark") {
+
+        html.classList.remove("light");
+        html.classList.add("dark");
+
+        toggleIcon.innerHTML =
+            '<i class="fas fa-moon"></i>';
+
+    } else {
+
+        html.classList.remove("dark");
+        html.classList.add("light");
+
+        toggleIcon.innerHTML =
+            '<i class="fas fa-sun"></i>';
+
+    }
+
+
+    function toggleTheme() {
+
+        const isDark =
+            html.classList.contains("dark");
+
+
+        if (isDark) {
+
+            html.classList.remove("dark");
+            html.classList.add("light");
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+            toggleIcon.innerHTML =
+                '<i class="fas fa-sun"></i>';
+
+        } else {
+
+            html.classList.remove("light");
+            html.classList.add("dark");
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+            toggleIcon.innerHTML =
+                '<i class="fas fa-moon"></i>';
+
+        }
+
+    }
+
+
+    themeToggle.addEventListener(
+        "click",
+        toggleTheme
+    );
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    hamburger.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                mainNav.classList.toggle("open");
+
+            hamburger.classList.toggle(
+                "open",
+                isOpen
+            );
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       MORE DROPDOWN
+    ===================================================== */
+
+    moreToggle.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            moreDropdown.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE MENUS OUTSIDE
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !moreDropdown.contains(
+                    event.target
+                )
+            ) {
+
+                moreDropdown.classList.remove(
+                    "open"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU
+    ===================================================== */
+
+    document.querySelectorAll(
+        ".nav-link, .dropdown-link"
+    ).forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    !link.classList.contains(
+                        "dropdown-toggle"
+                    )
+                ) {
+
+                    mainNav.classList.remove(
+                        "open"
+                    );
+
+                    hamburger.classList.remove(
+                        "open"
+                    );
+
+                    hamburger.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       NAVBAR SCROLL EFFECT
+    ===================================================== */
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            if (window.scrollY > 20) {
+
+                navbar.classList.add(
+                    "scrolled"
+                );
+
+            } else {
+
+                navbar.classList.remove(
+                    "scrolled"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       ESCAPE KEY
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                mainNav.classList.remove(
+                    "open"
+                );
+
+                hamburger.classList.remove(
+                    "open"
+                );
+
+                hamburger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                moreDropdown.classList.remove(
+                    "open"
+                );
+
+            }
+
+        }
+    );
+
+})();
+
+</script>
+
+</body>
+</html>
+```

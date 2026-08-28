@@ -1,0 +1,3244 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Me · Katleho Malefane</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           THEME VARIABLES
+        ========================================================= */
+
+        html.light {
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-dark: #3730a3;
+            --secondary: #0ea5e9;
+            --accent: #8b5cf6;
+
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-nav: rgba(10, 10, 15, 0.96);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+
+            --border-color: #e2e8f0;
+
+            --shadow:
+                0 10px 25px -5px rgba(0, 0, 0, 0.05);
+
+            --shadow-hover:
+                0 20px 40px -12px rgba(79, 70, 229, 0.20);
+
+            --badge-bg: #e0e7ff;
+            --badge-text: #3730a3;
+
+            --glow-color: rgba(79, 70, 229, 0.08);
+
+            --toggle-bg: #cbd5e1;
+            --toggle-icon: #4f46e5;
+
+            --nav-text: #ffffff;
+            --nav-muted: rgba(255, 255, 255, 0.68);
+            --nav-hover: rgba(255, 255, 255, 0.08);
+            --nav-active: rgba(79, 70, 229, 0.18);
+
+            --separator-color: rgba(255, 255, 255, 0.12);
+        }
+
+        html.dark {
+            --primary: #818cf8;
+            --primary-light: #a5b4fc;
+            --primary-dark: #6366f1;
+            --secondary: #38bdf8;
+            --accent: #a78bfa;
+
+            --bg-body: #0a0a0f;
+            --bg-surface: #14141e;
+            --bg-nav: rgba(0, 0, 0, 0.97);
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #252540;
+
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            --border-color: #2d2d44;
+
+            --shadow:
+                0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+            --shadow-hover:
+                0 20px 40px -12px rgba(129, 140, 248, 0.25);
+
+            --badge-bg: #2d2d44;
+            --badge-text: #818cf8;
+
+            --glow-color: rgba(129, 140, 248, 0.12);
+
+            --toggle-bg: #3d3d5c;
+            --toggle-icon: #fbbf24;
+
+            --nav-text: #ffffff;
+            --nav-muted: rgba(255, 255, 255, 0.60);
+            --nav-hover: rgba(255, 255, 255, 0.08);
+            --nav-active: rgba(129, 140, 248, 0.16);
+
+            --separator-color: rgba(255, 255, 255, 0.10);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 76px;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 76px;
+
+            background: var(--bg-nav);
+
+            border-top: 2px solid var(--primary);
+            border-bottom: 1px solid var(--separator-color);
+
+            z-index: 9999;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            transition:
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .nav-container {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        /* =========================================================
+           BRAND
+        ========================================================= */
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: white;
+
+            font-weight: 900;
+            font-size: 0.98rem;
+
+            box-shadow:
+                0 8px 22px rgba(79, 70, 229, 0.30);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .logo-mark:hover {
+            transform:
+                translateY(-2px)
+                scale(1.03);
+
+            box-shadow:
+                0 12px 28px rgba(79, 70, 229, 0.40);
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo {
+            color: var(--nav-text);
+
+            font-size: 1.15rem;
+            font-weight: 800;
+
+            letter-spacing: -0.035em;
+            white-space: nowrap;
+
+            transition: color 0.25s ease;
+        }
+
+        .logo span {
+            color: var(--primary-light);
+        }
+
+        .brand-tagline {
+            margin-top: 5px;
+
+            font-size: 0.72rem;
+            font-weight: 600;
+
+            color: var(--nav-muted);
+
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           MAIN NAVIGATION
+        ========================================================= */
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 4px;
+
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 11px;
+
+            border-radius: 9px;
+
+            color: var(--nav-muted);
+
+            font-size: 0.76rem;
+            font-weight: 600;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav-link i {
+            font-size: 0.72rem;
+        }
+
+        .nav-link:hover {
+            color: var(--nav-text);
+            background: var(--nav-hover);
+
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            background: var(--nav-active);
+        }
+
+        .nav-link.active i {
+            color: var(--primary-light);
+        }
+
+
+        /* =========================================================
+           MORE DROPDOWN
+        ========================================================= */
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-toggle .arrow {
+            font-size: 0.55rem;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+
+            top: calc(100% + 12px);
+            right: 0;
+
+            min-width: 205px;
+
+            padding: 8px;
+
+            background: var(--bg-surface);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.18);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(-8px);
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .dropdown-menu::before {
+            content: "";
+
+            position: absolute;
+
+            top: -6px;
+            right: 22px;
+
+            width: 12px;
+            height: 12px;
+
+            background: var(--bg-surface);
+
+            border-left:
+                1px solid var(--border-color);
+
+            border-top:
+                1px solid var(--border-color);
+
+            transform: rotate(45deg);
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0);
+        }
+
+        .dropdown:hover .arrow,
+        .dropdown.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            width: 100%;
+
+            padding: 10px 12px;
+
+            border-radius: 8px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .dropdown-link i {
+            width: 18px;
+            text-align: center;
+
+            color: var(--primary);
+        }
+
+        .dropdown-link:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+
+            transform:
+                translateX(3px);
+        }
+
+
+        /* =========================================================
+           NAV ACTIONS
+        ========================================================= */
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+        }
+
+        .projects-btn {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 15px;
+
+            border-radius: 9px;
+
+            background: var(--primary);
+
+            color: white;
+
+            font-size: 0.76rem;
+            font-weight: 700;
+
+            box-shadow:
+                0 6px 18px rgba(79, 70, 229, 0.28);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .projects-btn:hover {
+            background: var(--primary-dark);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(79, 70, 229, 0.38);
+        }
+
+
+        /* =========================================================
+           THEME TOGGLE
+        ========================================================= */
+
+        .theme-toggle {
+            width: 42px;
+            height: 26px;
+
+            padding: 3px;
+
+            border:
+                1px solid var(--separator-color);
+
+            border-radius: 50px;
+
+            background: var(--toggle-bg);
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+
+            transition:
+                background 0.3s ease;
+        }
+
+        .theme-slider {
+            width: 20px;
+            height: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: var(--toggle-icon);
+
+            font-size: 9px;
+
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+        html.dark .theme-toggle {
+            background: #4f46e5;
+        }
+
+        html.dark .theme-slider {
+            transform: translateX(14px);
+            background: #1e293b;
+        }
+
+
+        /* =========================================================
+           HAMBURGER
+        ========================================================= */
+
+        .hamburger {
+            width: 40px;
+            height: 40px;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            border:
+                1px solid var(--separator-color);
+
+            border-radius: 9px;
+
+            background: var(--nav-hover);
+
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 19px;
+            height: 2px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            transition:
+                all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform:
+                translateY(7px)
+                rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform:
+                translateY(-7px)
+                rotate(-45deg);
+        }
+
+
+        /* =========================================================
+           PAGE HERO
+        ========================================================= */
+
+        .page-hero {
+            position: relative;
+
+            padding:
+                85px 0 65px;
+
+            overflow: hidden;
+
+            text-align: center;
+        }
+
+        .page-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            top: -300px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--glow-color) 0%,
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                7px 14px;
+
+            margin-bottom: 18px;
+
+            background: var(--badge-bg);
+            color: var(--badge-text);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 50px;
+
+            font-size: 0.73rem;
+            font-weight: 700;
+
+            animation:
+                fadeInUp 0.7s ease both;
+        }
+
+        .page-badge i {
+            font-size: 0.62rem;
+        }
+
+        .page-hero h1 {
+            font-size:
+                clamp(2.6rem, 6vw, 4.4rem);
+
+            line-height: 1.05;
+
+            letter-spacing: -0.055em;
+
+            font-weight: 900;
+
+            margin-bottom: 17px;
+
+            animation:
+                fadeInUp 0.7s 0.1s ease both;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+        }
+
+        .page-hero p {
+            max-width: 680px;
+
+            margin:
+                0 auto;
+
+            color: var(--text-secondary);
+
+            font-size: 1rem;
+
+            animation:
+                fadeInUp 0.7s 0.2s ease both;
+        }
+
+
+        /* =========================================================
+           PROFESSIONAL IDENTITY
+        ========================================================= */
+
+        .identity-section {
+            padding:
+                25px 0 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .section-heading .eyebrow {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--primary);
+
+            font-size: 0.72rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.13em;
+        }
+
+        .section-heading h2 {
+            font-size:
+                clamp(1.8rem, 4vw, 2.5rem);
+
+            line-height: 1.1;
+
+            letter-spacing: -0.04em;
+
+            font-weight: 850;
+        }
+
+        .section-heading p {
+            max-width: 620px;
+
+            margin:
+                12px auto 0;
+
+            color: var(--text-secondary);
+
+            font-size: 0.95rem;
+        }
+
+        .identity-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .identity-card {
+            position: relative;
+
+            padding: 30px 26px;
+
+            background: var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 18px;
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .identity-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            transform:
+                scaleX(0);
+
+            transform-origin: left;
+
+            transition:
+                transform 0.35s ease;
+        }
+
+        .identity-card:hover {
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(129, 140, 248, 0.5);
+
+            box-shadow:
+                var(--shadow-hover);
+        }
+
+        .identity-card:hover::before {
+            transform:
+                scaleX(1);
+        }
+
+        .identity-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--badge-bg),
+                    rgba(14, 165, 233, 0.10)
+                );
+
+            color: var(--primary);
+
+            font-size: 1.3rem;
+
+            border:
+                1px solid var(--border-color);
+        }
+
+        .identity-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 1.18rem;
+
+            font-weight: 800;
+
+            letter-spacing: -0.025em;
+        }
+
+        .identity-card p {
+            color: var(--text-secondary);
+
+            font-size: 0.9rem;
+
+            line-height: 1.75;
+        }
+
+        .identity-number {
+            position: absolute;
+
+            right: 22px;
+            top: 20px;
+
+            color: var(--border-color);
+
+            font-size: 2.3rem;
+
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           PROFILE / WHO I AM
+        ========================================================= */
+
+        .profile-section {
+            padding:
+                30px 0 85px;
+        }
+
+        .profile-layout {
+            display: grid;
+
+            grid-template-columns:
+                0.75fr 1.25fr;
+
+            gap: 65px;
+
+            align-items: center;
+        }
+
+        .profile-image-area {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-frame {
+            width:
+                min(360px, 80vw);
+
+            aspect-ratio: 1;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            animation:
+                float 6s ease-in-out infinite;
+        }
+
+        .profile-frame::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -2px;
+
+            border-radius: 50%;
+
+            background:
+                conic-gradient(
+                    from 0deg,
+                    var(--primary),
+                    var(--accent),
+                    var(--secondary),
+                    var(--primary)
+                );
+
+            animation:
+                spinBorder 5s linear infinite;
+
+            box-shadow:
+                0 0 20px rgba(79, 70, 229, 0.15);
+        }
+
+        .profile-image {
+            width:
+                calc(100% - 6px);
+
+            height:
+                calc(100% - 6px);
+
+            position: relative;
+
+            z-index: 2;
+
+            overflow: hidden;
+
+            border-radius: 50%;
+
+            background: var(--bg-surface);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+        }
+
+        .profile-content .section-heading {
+            text-align: left;
+
+            margin-bottom: 20px;
+        }
+
+        .profile-content .section-heading p {
+            margin-left: 0;
+        }
+
+        .profile-text {
+            color: var(--text-secondary);
+
+            font-size: 0.96rem;
+
+            line-height: 1.85;
+
+            margin-bottom: 17px;
+        }
+
+        .profile-highlight {
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--accent),
+                    var(--secondary),
+                    var(--primary)
+                );
+
+            background-size: 300% 100%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+            animation:
+                sweepGradient 4s ease-in-out infinite;
+        }
+
+
+        /* =========================================================
+           MISSION VISION
+        ========================================================= */
+
+        .purpose-section {
+            padding:
+                25px 0 85px;
+        }
+
+        .purpose-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .purpose-card {
+            position: relative;
+
+            padding: 35px;
+
+            min-height: 270px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+
+            background: var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 20px;
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .purpose-card:hover {
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                var(--shadow-hover);
+        }
+
+        .purpose-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -80px;
+            bottom: -90px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--glow-color),
+                    transparent 70%
+                );
+        }
+
+        .purpose-icon {
+            width: 54px;
+            height: 54px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: white;
+
+            font-size: 1.1rem;
+
+            box-shadow:
+                0 8px 22px rgba(79, 70, 229, 0.22);
+        }
+
+        .purpose-card h3 {
+            margin-bottom: 11px;
+
+            font-size: 1.25rem;
+
+            font-weight: 800;
+        }
+
+        .purpose-card p {
+            max-width: 530px;
+
+            color: var(--text-secondary);
+
+            font-size: 0.92rem;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           GOALS
+        ========================================================= */
+
+        .goals-section {
+            padding:
+                25px 0 90px;
+        }
+
+        .goals-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 14px;
+        }
+
+        .goal-card {
+            padding:
+                27px 19px;
+
+            text-align: center;
+
+            background: var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 16px;
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                var(--shadow-hover);
+        }
+
+        .goal-icon {
+            width: 50px;
+            height: 50px;
+
+            margin:
+                0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: var(--badge-bg);
+
+            color: var(--primary);
+
+            font-size: 1.05rem;
+        }
+
+        .goal-card h3 {
+            margin-bottom: 8px;
+
+            font-size: 0.96rem;
+
+            font-weight: 800;
+        }
+
+        .goal-card p {
+            color: var(--text-secondary);
+
+            font-size: 0.78rem;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+           MOTTO
+        ========================================================= */
+
+        .motto-section {
+            padding:
+                25px 0 95px;
+        }
+
+        .motto-box {
+            position: relative;
+
+            padding:
+                70px 35px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(79, 70, 229, 0.10),
+                    rgba(14, 165, 233, 0.08)
+                );
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 25px;
+
+            overflow: hidden;
+        }
+
+        .motto-box::before,
+        .motto-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--glow-color),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+        .motto-box::before {
+            top: -100px;
+            left: -80px;
+        }
+
+        .motto-box::after {
+            bottom: -100px;
+            right: -80px;
+        }
+
+        .quote-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin:
+                0 auto 22px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: white;
+
+            font-size: 1.15rem;
+
+            box-shadow:
+                0 10px 25px rgba(79, 70, 229, 0.25);
+        }
+
+        .motto-box h2 {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 900px;
+
+            margin:
+                0 auto 17px;
+
+            font-size:
+                clamp(2rem, 5vw, 3.7rem);
+
+            line-height: 1.1;
+
+            letter-spacing: -0.055em;
+
+            font-weight: 900;
+        }
+
+        .motto-box h2 span {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--accent),
+                    var(--secondary)
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+        }
+
+        .motto-box p {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            color: var(--text-secondary);
+
+            font-size: 0.95rem;
+
+            font-style: italic;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .about-cta {
+            padding:
+                0 0 90px;
+        }
+
+        .cta-inner {
+            padding:
+                40px 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            background: var(--bg-card);
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius: 20px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .cta-inner h2 {
+            margin-bottom: 7px;
+
+            font-size: 1.45rem;
+
+            font-weight: 850;
+
+            letter-spacing: -0.03em;
+        }
+
+        .cta-inner p {
+            color: var(--text-secondary);
+
+            font-size: 0.88rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding:
+                12px 20px;
+
+            border-radius: 10px;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+
+            border:
+                1px solid var(--border-color);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+
+            color: white;
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 8px 20px rgba(79, 70, 229, 0.25);
+        }
+
+        .btn-primary:hover {
+            background:
+                var(--primary-dark);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 12px 28px rgba(79, 70, 229, 0.35);
+        }
+
+        .btn-outline {
+            background:
+                var(--bg-surface);
+
+            color:
+                var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color:
+                var(--primary);
+
+            color:
+                var(--primary);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding:
+                25px 0;
+
+            text-align: center;
+
+            background:
+                var(--bg-surface);
+
+            border-top:
+                1px solid var(--border-color);
+
+            color:
+                var(--text-secondary);
+
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color:
+                var(--primary);
+
+            transition:
+                opacity 0.2s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-links {
+            margin-top: 7px;
+
+            display: flex;
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px);
+            }
+
+            100% {
+                transform:
+                    translateY(0);
+            }
+        }
+
+        @keyframes spinBorder {
+            to {
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+        @keyframes sweepGradient {
+            0% {
+                background-position:
+                    0% 50%;
+            }
+
+            50% {
+                background-position:
+                    100% 50%;
+            }
+
+            100% {
+                background-position:
+                    0% 50%;
+            }
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .nav-link {
+                padding: 8px;
+            }
+
+            .nav-link span {
+                display: none;
+            }
+
+            .nav-link i {
+                font-size: 0.8rem;
+            }
+
+            .nav-link.active span {
+                display: inline;
+            }
+
+            .goals-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE NAVIGATION
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            body {
+                padding-top: 70px;
+            }
+
+            .brand-tagline {
+                display: none;
+            }
+
+            .main-nav {
+                position: fixed;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                padding:
+                    18px 20px 25px;
+
+                background:
+                    var(--bg-nav);
+
+                border-bottom:
+                    1px solid var(--separator-color);
+
+                box-shadow:
+                    0 20px 35px rgba(0, 0, 0, 0.25);
+
+                opacity: 0;
+                visibility: hidden;
+
+                transform:
+                    translateY(-15px);
+
+                transition:
+                    opacity 0.3s ease,
+                    visibility 0.3s ease,
+                    transform 0.3s ease;
+            }
+
+            .main-nav.open {
+                opacity: 1;
+                visibility: visible;
+
+                transform:
+                    translateY(0);
+            }
+
+            .nav-links {
+                width: 100%;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 5px;
+            }
+
+            .nav-link {
+                width: 100%;
+
+                padding:
+                    12px 14px;
+
+                justify-content: flex-start;
+
+                font-size: 0.85rem;
+            }
+
+            .nav-link span {
+                display: inline;
+            }
+
+            .dropdown-menu {
+                position: static;
+
+                width: 100%;
+
+                margin-top: 4px;
+
+                padding-left: 10px;
+
+                display: none;
+
+                opacity: 1;
+                visibility: visible;
+
+                transform: none;
+
+                box-shadow: none;
+
+                background: transparent;
+
+                border: none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu::before {
+                display: none;
+            }
+
+            .dropdown-link {
+                color:
+                    var(--nav-muted);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .projects-btn span {
+                display: none;
+            }
+
+            .projects-btn {
+                width: 40px;
+                height: 40px;
+
+                padding: 0;
+
+                justify-content: center;
+            }
+
+
+            /* PAGE */
+
+            .page-hero {
+                padding:
+                    65px 0 50px;
+            }
+
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .profile-image-area {
+                order: -1;
+            }
+
+            .profile-content .section-heading {
+                text-align: center;
+            }
+
+            .profile-content .section-heading p {
+                margin-left: auto;
+            }
+
+            .purpose-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .cta-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+        }
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 480px) {
+
+            .container {
+                width:
+                    min(100% - 28px, 1180px);
+            }
+
+            .logo-mark {
+                width: 36px;
+                height: 36px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .nav-actions {
+                gap: 5px;
+            }
+
+            .theme-toggle {
+                width: 38px;
+                height: 24px;
+            }
+
+            .theme-slider {
+                width: 18px;
+                height: 18px;
+            }
+
+            html.dark .theme-slider {
+                transform:
+                    translateX(12px);
+            }
+
+            .hamburger {
+                width: 38px;
+                height: 38px;
+            }
+
+            .page-hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .page-hero p {
+                font-size: 0.9rem;
+            }
+
+            .profile-frame {
+                width: 230px;
+            }
+
+            .purpose-card {
+                padding: 27px 23px;
+            }
+
+            .goals-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .motto-box {
+                padding:
+                    55px 22px;
+            }
+
+            .motto-box h2 {
+                font-size:
+                    2rem;
+            }
+
+            .cta-inner {
+                padding:
+                    30px 22px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior:
+                    auto !important;
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar" id="navbar">
+
+        <div class="container nav-container">
+
+            <!-- BRAND -->
+
+            <div class="nav-brand">
+
+                <a href="index.html" class="logo-mark">
+                    KM
+                </a>
+
+                <div class="brand-info">
+
+                    <a href="index.html" class="logo">
+                        Katleho <span>Malefane</span>
+                    </a>
+
+                    <span class="brand-tagline">
+                        Software Engineer
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAIN NAVIGATION -->
+
+            <div class="main-nav" id="mainNav">
+
+                <ul class="nav-links">
+
+                    <!-- HOME -->
+
+                    <li class="nav-item">
+
+                        <a href="index.html" class="nav-link">
+
+                            <i class="fas fa-house"></i>
+
+                            <span>
+                                Home
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- ABOUT -->
+
+                    <li class="nav-item">
+
+                        <a href="about.html" class="nav-link active">
+
+                            <i class="fas fa-user"></i>
+
+                            <span>
+                                About
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- EDUCATION -->
+
+                    <li class="nav-item">
+
+                        <a href="education.html" class="nav-link">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+                            <span>
+                                Education
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- SKILLS -->
+
+                    <li class="nav-item">
+
+                        <a href="skills.html" class="nav-link">
+
+                            <i class="fas fa-code"></i>
+
+                            <span>
+                                Skills
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- MORE -->
+
+                    <li class="nav-item dropdown" id="moreDropdown">
+
+                        <a
+                            href="javascript:void(0)"
+                            class="nav-link dropdown-toggle"
+                            id="moreToggle">
+
+                            <i class="fas fa-layer-group"></i>
+
+                            <span>
+                                More
+                            </span>
+
+                            <i class="fas fa-chevron-down arrow"></i>
+
+                        </a>
+
+
+                        <div class="dropdown-menu">
+
+                            <a
+                                href="projects.html"
+                                class="dropdown-link">
+
+                                <i class="fas fa-folder-open"></i>
+
+                                <span>
+                                    Projects
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="certificates.html"
+                                class="dropdown-link">
+
+                                <i class="fas fa-certificate"></i>
+
+                                <span>
+                                    Certificates
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="cv.html"
+                                class="dropdown-link">
+
+                                <i class="fas fa-file-lines"></i>
+
+                                <span>
+                                    Curriculum Vitae
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="cover-letters.html"
+                                class="dropdown-link">
+
+                                <i class="fas fa-envelope"></i>
+
+                                <span>
+                                    Cover Letters
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="contact.html"
+                                class="dropdown-link">
+
+                                <i class="fas fa-address-card"></i>
+
+                                <span>
+                                    Contact Me
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- NAV ACTIONS -->
+
+            <div class="nav-actions">
+
+                <a
+                    href="projects.html"
+                    class="projects-btn">
+
+                    <i class="fas fa-folder-open"></i>
+
+                    <span>
+                        Projects
+                    </span>
+
+                </a>
+
+
+                <!-- THEME -->
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle dark and light mode"
+                    title="Toggle theme">
+
+                    <span
+                        class="theme-slider"
+                        id="toggleIcon">
+
+                        <i class="fas fa-sun"></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- MOBILE -->
+
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         PAGE HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="page-hero">
+
+            <div class="container page-hero-content">
+
+                <span class="page-badge">
+
+                    <i class="fas fa-user-circle"></i>
+
+                    Get to know me
+
+                </span>
+
+
+                <h1>
+
+                    About
+
+                    <span class="gradient-text">
+                        Me
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    I'm Katleho Malefane — a
+
+                    <strong>
+                        Software Engineer
+                    </strong>,
+
+                    <strong>
+                        Data Analyst
+                    </strong>
+
+                    and
+
+                    <strong>
+                        Full-Stack Developer
+                    </strong>
+
+                    passionate about turning ideas,
+                    data and challenges into meaningful
+                    digital solutions.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROFESSIONAL IDENTITY
+        ===================================================== -->
+
+        <section class="identity-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        My Professional Identity
+                    </span>
+
+                    <h2>
+                        What I Do
+                    </h2>
+
+                    <p>
+                        Three areas that define my approach
+                        to technology and problem solving.
+                    </p>
+
+                </div>
+
+
+                <div class="identity-grid">
+
+                    <!-- SOFTWARE ENGINEER -->
+
+                    <article class="identity-card">
+
+                        <span class="identity-number">
+                            01
+                        </span>
+
+                        <div class="identity-icon">
+
+                            <i class="fas fa-laptop-code"></i>
+
+                        </div>
+
+                        <h3>
+                            Software Engineer
+                        </h3>
+
+                        <p>
+                            I design, develop and maintain
+                            practical software solutions
+                            that address real-world problems
+                            while focusing on reliability,
+                            usability and performance.
+                        </p>
+
+                    </article>
+
+
+                    <!-- DATA ANALYST -->
+
+                    <article class="identity-card">
+
+                        <span class="identity-number">
+                            02
+                        </span>
+
+                        <div class="identity-icon">
+
+                            <i class="fas fa-chart-line"></i>
+
+                        </div>
+
+                        <h3>
+                            Data Analyst
+                        </h3>
+
+                        <p>
+                            I analyse, interpret and
+                            communicate data to uncover
+                            meaningful patterns, generate
+                            insights and support informed
+                            decision-making.
+                        </p>
+
+                    </article>
+
+
+                    <!-- FULL STACK -->
+
+                    <article class="identity-card">
+
+                        <span class="identity-number">
+                            03
+                        </span>
+
+                        <div class="identity-icon">
+
+                            <i class="fas fa-layer-group"></i>
+
+                        </div>
+
+                        <h3>
+                            Full-Stack Developer
+                        </h3>
+
+                        <p>
+                            I build complete web applications,
+                            combining responsive front-end
+                            interfaces with powerful back-end
+                            functionality and data solutions.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WHO I AM
+        ===================================================== -->
+
+        <section class="profile-section">
+
+            <div class="container">
+
+                <div class="profile-layout">
+
+
+                    <!-- IMAGE -->
+
+                    <div class="profile-image-area">
+
+                        <div class="profile-frame">
+
+                            <div class="profile-image">
+
+                                <img
+                                    src="image/img_2.jpeg"
+                                    alt="Katleho Malefane - Software Engineer"
+                                    loading="lazy">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="profile-content">
+
+                        <div class="section-heading">
+
+                            <span class="eyebrow">
+                                Who I Am
+                            </span>
+
+                            <h2>
+                                Building. Analysing.
+                                <span class="gradient-text">
+                                    Creating.
+                                </span>
+                            </h2>
+
+                            <p>
+                                Technology is more than code —
+                                it's a tool for solving problems.
+                            </p>
+
+                        </div>
+
+
+                        <p class="profile-text">
+
+                            I am a passionate technology
+                            professional with a strong interest
+                            in software engineering, data
+                            analysis and full-stack development.
+
+                        </p>
+
+
+                        <p class="profile-text">
+
+                            I enjoy taking an idea or a problem,
+                            understanding what is needed,
+                            designing a solution and turning it
+                            into a functional digital product.
+
+                        </p>
+
+
+                        <p class="profile-text">
+
+                            My approach combines
+
+                            <span class="profile-highlight">
+                                technical development,
+                                analytical thinking and
+                                continuous learning
+                            </span>
+
+                            to create solutions that are
+                            practical, user-friendly and
+                            capable of making a meaningful
+                            difference.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MISSION & VISION
+        ===================================================== -->
+
+        <section class="purpose-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        Direction & Purpose
+                    </span>
+
+                    <h2>
+                        Mission & Vision
+                    </h2>
+
+                    <p>
+                        What drives me today and where I am
+                        working towards tomorrow.
+                    </p>
+
+                </div>
+
+
+                <div class="purpose-grid">
+
+
+                    <!-- MISSION -->
+
+                    <article class="purpose-card">
+
+                        <div class="purpose-icon">
+
+                            <i class="fas fa-bullseye"></i>
+
+                        </div>
+
+                        <h3>
+                            My Mission
+                        </h3>
+
+                        <p>
+
+                            To design and develop innovative,
+                            reliable and user-focused technology
+                            solutions that solve real-world
+                            problems and create meaningful
+                            impact.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- VISION -->
+
+                    <article class="purpose-card">
+
+                        <div class="purpose-icon">
+
+                            <i class="fas fa-eye"></i>
+
+                        </div>
+
+                        <h3>
+                            My Vision
+                        </h3>
+
+                        <p>
+
+                            To become a highly skilled technology
+                            professional who uses software,
+                            data and innovation to contribute to
+                            a smarter, more connected and
+                            digitally empowered future.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GOALS
+        ===================================================== -->
+
+        <section class="goals-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        My Direction
+                    </span>
+
+                    <h2>
+                        Professional Goals
+                    </h2>
+
+                    <p>
+                        The principles that guide my growth
+                        as a technology professional.
+                    </p>
+
+                </div>
+
+
+                <div class="goals-grid">
+
+
+                    <!-- BUILD -->
+
+                    <article class="goal-card">
+
+                        <div class="goal-icon">
+
+                            <i class="fas fa-code"></i>
+
+                        </div>
+
+                        <h3>
+                            Build
+                        </h3>
+
+                        <p>
+                            Develop impactful and scalable
+                            software solutions.
+                        </p>
+
+                    </article>
+
+
+                    <!-- GROW -->
+
+                    <article class="goal-card">
+
+                        <div class="goal-icon">
+
+                            <i class="fas fa-arrow-trend-up"></i>
+
+                        </div>
+
+                        <h3>
+                            Grow
+                        </h3>
+
+                        <p>
+                            Continuously improve my technical
+                            and analytical skills.
+                        </p>
+
+                    </article>
+
+
+                    <!-- LEARN -->
+
+                    <article class="goal-card">
+
+                        <div class="goal-icon">
+
+                            <i class="fas fa-book-open"></i>
+
+                        </div>
+
+                        <h3>
+                            Learn
+                        </h3>
+
+                        <p>
+                            Explore emerging technologies
+                            and modern development approaches.
+                        </p>
+
+                    </article>
+
+
+                    <!-- IMPACT -->
+
+                    <article class="goal-card">
+
+                        <div class="goal-icon">
+
+                            <i class="fas fa-globe"></i>
+
+                        </div>
+
+                        <h3>
+                            Impact
+                        </h3>
+
+                        <p>
+                            Use technology and data to solve
+                            meaningful real-world problems.
+                        </p>
+
+                    </article>
+
+
+                    <!-- INNOVATE -->
+
+                    <article class="goal-card">
+
+                        <div class="goal-icon">
+
+                            <i class="fas fa-lightbulb"></i>
+
+                        </div>
+
+                        <h3>
+                            Innovate
+                        </h3>
+
+                        <p>
+                            Turn ideas into practical digital
+                            solutions.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MOTTO
+        ===================================================== -->
+
+        <section class="motto-section">
+
+            <div class="container">
+
+                <div class="motto-box">
+
+                    <div class="quote-icon">
+
+                        <i class="fas fa-quote-left"></i>
+
+                    </div>
+
+
+                    <h2>
+
+                        If You Never
+
+                        <span>
+                            Try
+                        </span>,
+
+                        You'll Never
+
+                        <span>
+                            Know
+                        </span>.
+
+                    </h2>
+
+
+                    <p>
+
+                        Every attempt is an opportunity
+                        to learn, improve, discover and grow.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ===================================================== -->
+
+        <section class="about-cta">
+
+            <div class="container">
+
+                <div class="cta-inner">
+
+                    <div>
+
+                        <h2>
+                            Let's Build Something Meaningful.
+                        </h2>
+
+                        <p>
+                            Explore my work, skills and
+                            professional journey.
+                        </p>
+
+                    </div>
+
+
+                    <div class="cta-buttons">
+
+                        <a
+                            href="projects.html"
+                            class="btn btn-primary">
+
+                            <i class="fas fa-folder-open"></i>
+
+                            View Projects
+
+                        </a>
+
+
+                        <a
+                            href="contact.html"
+                            class="btn btn-outline">
+
+                            <i class="fas fa-paper-plane"></i>
+
+                            Contact Me
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                &copy; 2026 Katleho Malefane.
+
+                Built with
+
+                <i
+                    class="fas fa-heart"
+                    style="color: var(--primary);">
+                </i>
+
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <span>·</span>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <span>·</span>
+
+                <a href="education.html">
+                    Education
+                </a>
+
+                <span>·</span>
+
+                <a href="skills.html">
+                    Skills
+                </a>
+
+                <span>·</span>
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+                <span>·</span>
+
+                <a href="certificates.html">
+                    Certificates
+                </a>
+
+                <span>·</span>
+
+                <a href="cv.html">
+                    CV
+                </a>
+
+                <span>·</span>
+
+                <a href="cover-letters.html">
+                    Cover Letters
+                </a>
+
+                <span>·</span>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+
+            /* =====================================================
+               ELEMENTS
+            ===================================================== */
+
+            const html =
+                document.documentElement;
+
+            const navbar =
+                document.getElementById("navbar");
+
+            const themeToggle =
+                document.getElementById("themeToggle");
+
+            const toggleIcon =
+                document.getElementById("toggleIcon");
+
+            const hamburger =
+                document.getElementById("hamburger");
+
+            const mainNav =
+                document.getElementById("mainNav");
+
+            const moreDropdown =
+                document.getElementById("moreDropdown");
+
+            const moreToggle =
+                document.getElementById("moreToggle");
+
+
+            /* =====================================================
+               THEME
+            ===================================================== */
+
+            const savedTheme =
+                localStorage.getItem("theme");
+
+
+            if (savedTheme === "dark") {
+
+                html.classList.remove("light");
+
+                html.classList.add("dark");
+
+                toggleIcon.innerHTML =
+                    '<i class="fas fa-moon"></i>';
+
+            } else {
+
+                html.classList.remove("dark");
+
+                html.classList.add("light");
+
+                toggleIcon.innerHTML =
+                    '<i class="fas fa-sun"></i>';
+
+            }
+
+
+            function toggleTheme() {
+
+                const isDark =
+                    html.classList.contains("dark");
+
+
+                if (isDark) {
+
+                    html.classList.remove("dark");
+
+                    html.classList.add("light");
+
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
+
+                    toggleIcon.innerHTML =
+                        '<i class="fas fa-sun"></i>';
+
+                } else {
+
+                    html.classList.remove("light");
+
+                    html.classList.add("dark");
+
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
+
+                    toggleIcon.innerHTML =
+                        '<i class="fas fa-moon"></i>';
+
+                }
+
+            }
+
+
+            themeToggle.addEventListener(
+                "click",
+                toggleTheme
+            );
+
+
+            /* =====================================================
+               MOBILE MENU
+            ===================================================== */
+
+            hamburger.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        mainNav.classList.toggle("open");
+
+
+                    hamburger.classList.toggle(
+                        "open",
+                        isOpen
+                    );
+
+
+                    hamburger.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               MORE DROPDOWN
+            ===================================================== */
+
+            moreToggle.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    moreDropdown.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               CLOSE MENUS OUTSIDE
+            ===================================================== */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !moreDropdown.contains(
+                            event.target
+                        )
+                    ) {
+
+                        moreDropdown.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               CLOSE MOBILE MENU
+            ===================================================== */
+
+            document.querySelectorAll(
+                ".nav-link, .dropdown-link"
+            ).forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            !link.classList.contains(
+                                "dropdown-toggle"
+                            )
+                        ) {
+
+                            mainNav.classList.remove(
+                                "open"
+                            );
+
+                            hamburger.classList.remove(
+                                "open"
+                            );
+
+                            hamburger.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /* =====================================================
+               NAVBAR SCROLL EFFECT
+            ===================================================== */
+
+            window.addEventListener(
+                "scroll",
+                function () {
+
+                    if (window.scrollY > 20) {
+
+                        navbar.classList.add(
+                            "scrolled"
+                        );
+
+                    } else {
+
+                        navbar.classList.remove(
+                            "scrolled"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               ESCAPE KEY
+            ===================================================== */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Escape") {
+
+                        mainNav.classList.remove(
+                            "open"
+                        );
+
+                        hamburger.classList.remove(
+                            "open"
+                        );
+
+                        hamburger.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        moreDropdown.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
+
+        })();
+
+    </script>
+
+</body>
+
+</html>
+```

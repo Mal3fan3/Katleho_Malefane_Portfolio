@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact · John Doe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* --- RESET, ROOT, NAV (SAME) --- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+            --radius: 12px;
+            --transition: 0.25s ease;
+            --max-width: 800px;
+            --nav-height: 68px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: color var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: var(--text);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        #contact {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+        .section-divider {
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+        .form-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .form-card label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .form-card input,
+        .form-card textarea {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border var(--transition);
+            background: var(--bg);
+            margin-bottom: 1rem;
+        }
+        .form-card input:focus,
+        .form-card textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .form-card textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-card .error {
+            color: #dc2626;
+            font-size: 0.85rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.75rem;
+            display: none;
+        }
+        .form-card .error.show {
+            display: block;
+        }
+        .form-card .btn-submit {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .form-card .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: scale(1.01);
+        }
+        .form-card .success-msg {
+            display: none;
+            text-align: center;
+            color: #16a34a;
+            font-weight: 600;
+            padding: 1rem;
+            border: 2px solid #16a34a;
+            border-radius: var(--radius);
+            background: #f0fdf4;
+        }
+        .form-card .success-msg.show {
+            display: block;
+        }
+
+        .social-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .social-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 2rem;
+            color: var(--text-muted);
+            transition: color var(--transition), transform var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-4px);
+        }
+        .social-links a span {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--surface);
+            margin-top: 2rem;
+        }
+        @media (max-width: 720px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-120%);
+                transition: transform 0.3s ease;
+                box-shadow: var(--shadow);
+                align-items: stretch;
+                text-align: center;
+            }
+            .nav-links.open {
+                transform: translateY(0);
+            }
+            .hamburger {
+                display: flex;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">John<span>.</span></a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certificates.html">Certificates</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="cover-letters.html">Cover Letters</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-divider"></div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Let's connect! Drop me a message or find me on social platforms.</p>
+
+            <div class="contact-wrapper">
+                <!-- Contact Form (FR-19, FR-20) -->
+                <div class="form-card">
+                    <form id="contactForm" novalidate>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Smith" required />
+                        <div class="error" id="nameError">Please enter your name.</div>
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required />
+                        <div class="error" id="emailError">Please enter a valid email address.</div>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your message here..." required></textarea>
+                        <div class="error" id="messageError">Please enter a message (at least 10 characters).</div>
+
+                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        <div class="success-msg" id="successMsg"><i class="fas fa-check-circle"></i> Thank you! Your message has been sent.</div>
+                    </form>
+                </div>
+
+                <!-- Social Links (FR-13) -->
+                <div class="social-card">
+                    <h3><i class="fas fa-share-alt"></i> Connect with Me</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:john@example.com" target="_blank" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                        <i class="fas fa-map-pin"></i> London, UK
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 John Doe · Built with <i class="fas fa-heart" style="color: var(--primary);"></i></p>
+            <p style="margin-top: 0.25rem; font-size: 0.85rem;"><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="education.html">Education</a> · <a href="skills.html">Skills</a> · <a href="projects.html">Projects</a> · <a href="certificates.html">Certificates</a> · <a href="cv.html">CV</a> · <a href="cover-letters.html">Cover Letters</a> · <a href="contact.html">Contact</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== FORM VALIDATION (FR-20) =====
+        const form = document.getElementById('contactForm');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        const nameErr = document.getElementById('nameError');
+        const emailErr = document.getElementById('emailError');
+        const msgErr = document.getElementById('messageError');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Name
+            if (name.value.trim().length < 2) {
+                nameErr.classList.add('show');
+                isValid = false;
+            } else {
+                nameErr.classList.remove('show');
+            }
+
+            // Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value.trim())) {
+                emailErr.classList.add('show');
+                isValid = false;
+            } else {
+                emailErr.classList.remove('show');
+            }
+
+            // Message
+            if (message.value.trim().length < 10) {
+                msgErr.classList.add('show');
+                isValid = false;
+            } else {
+                msgErr.classList.remove('show');
+            }
+
+            if (isValid) {
+                successMsg.classList.add('show');
+                form.reset();
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 5000);
+            }
+        });
+
+        // ===== HAMBURGER =====
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.addEventListener('click', function() {
+                const isOpen = navLinks.classList.toggle('open');
+                hamburger.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen);
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
