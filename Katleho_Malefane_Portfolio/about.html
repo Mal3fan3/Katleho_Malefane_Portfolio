@@ -27,15 +27,15 @@
         ========================================================= */
 
         html.light {
-            --primary: #4f46e5;
-            --primary-light: #818cf8;
-            --primary-dark: #3730a3;
-            --secondary: #0ea5e9;
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #5b21b6;
+            --secondary: #06b6d4;
             --accent: #8b5cf6;
 
             --bg-body: #f8fafc;
             --bg-surface: #ffffff;
-            --bg-nav: rgba(10, 10, 15, 0.96);
+            --bg-nav: rgba(10, 10, 15, 0.97);
             --bg-card: #ffffff;
             --bg-card-hover: #f1f5f9;
 
@@ -49,34 +49,34 @@
                 0 10px 25px -5px rgba(0, 0, 0, 0.05);
 
             --shadow-hover:
-                0 20px 40px -12px rgba(79, 70, 229, 0.20);
+                0 20px 40px -12px rgba(124, 58, 237, 0.20);
 
-            --badge-bg: #e0e7ff;
-            --badge-text: #3730a3;
+            --badge-bg: #ede9fe;
+            --badge-text: #5b21b6;
 
-            --glow-color: rgba(79, 70, 229, 0.08);
+            --glow-color: rgba(124, 58, 237, 0.08);
 
             --toggle-bg: #cbd5e1;
-            --toggle-icon: #4f46e5;
+            --toggle-icon: #7c3aed;
 
             --nav-text: #ffffff;
             --nav-muted: rgba(255, 255, 255, 0.68);
             --nav-hover: rgba(255, 255, 255, 0.08);
-            --nav-active: rgba(79, 70, 229, 0.18);
+            --nav-active: rgba(124, 58, 237, 0.18);
 
             --separator-color: rgba(255, 255, 255, 0.12);
         }
 
         html.dark {
-            --primary: #818cf8;
-            --primary-light: #a5b4fc;
-            --primary-dark: #6366f1;
-            --secondary: #38bdf8;
-            --accent: #a78bfa;
+            --primary: #a78bfa;
+            --primary-light: #c4b5fd;
+            --primary-dark: #8b5cf6;
+            --secondary: #22d3ee;
+            --accent: #c084fc;
 
             --bg-body: #0a0a0f;
             --bg-surface: #14141e;
-            --bg-nav: rgba(0, 0, 0, 0.97);
+            --bg-nav: rgba(0, 0, 0, 0.98);
             --bg-card: #1a1a2e;
             --bg-card-hover: #252540;
 
@@ -90,12 +90,12 @@
                 0 10px 25px -5px rgba(0, 0, 0, 0.5);
 
             --shadow-hover:
-                0 20px 40px -12px rgba(129, 140, 248, 0.25);
+                0 20px 40px -12px rgba(167, 139, 250, 0.25);
 
             --badge-bg: #2d2d44;
-            --badge-text: #818cf8;
+            --badge-text: #c4b5fd;
 
-            --glow-color: rgba(129, 140, 248, 0.12);
+            --glow-color: rgba(167, 139, 250, 0.12);
 
             --toggle-bg: #3d3d5c;
             --toggle-icon: #fbbf24;
@@ -103,7 +103,7 @@
             --nav-text: #ffffff;
             --nav-muted: rgba(255, 255, 255, 0.60);
             --nav-hover: rgba(255, 255, 255, 0.08);
-            --nav-active: rgba(129, 140, 248, 0.16);
+            --nav-active: rgba(167, 139, 250, 0.16);
 
             --separator-color: rgba(255, 255, 255, 0.10);
         }
@@ -130,7 +130,7 @@
             background: var(--bg-body);
             color: var(--text-primary);
             line-height: 1.6;
-            padding-top: 76px;
+            padding-top: 82px;
 
             transition:
                 background 0.3s ease,
@@ -162,12 +162,12 @@
             left: 0;
 
             width: 100%;
-            height: 76px;
+            height: 82px;
 
             background: var(--bg-nav);
 
-            border-top: 2px solid var(--primary);
-            border-bottom: 1px solid var(--separator-color);
+            border-top: 3px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
 
             z-index: 9999;
 
@@ -182,7 +182,7 @@
 
         .navbar.scrolled {
             box-shadow:
-                0 12px 35px rgba(0, 0, 0, 0.18);
+                0 12px 35px rgba(0, 0, 0, 0.25);
         }
 
         .nav-container {
@@ -208,14 +208,14 @@
         }
 
         .logo-mark {
-            width: 42px;
-            height: 42px;
+            width: 48px;
+            height: 48px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 11px;
+            border-radius: 12px;
 
             background:
                 linear-gradient(
@@ -227,10 +227,10 @@
             color: white;
 
             font-weight: 900;
-            font-size: 0.98rem;
+            font-size: 1rem;
 
             box-shadow:
-                0 8px 22px rgba(79, 70, 229, 0.30);
+                0 8px 22px rgba(124, 58, 237, 0.35);
 
             transition:
                 transform 0.25s ease,
@@ -239,29 +239,26 @@
 
         .logo-mark:hover {
             transform:
-                translateY(-2px)
-                scale(1.03);
+                translateY(-2px) scale(1.04);
 
             box-shadow:
-                0 12px 28px rgba(79, 70, 229, 0.40);
+                0 12px 28px rgba(124, 58, 237, 0.45);
         }
 
         .brand-info {
             display: flex;
             flex-direction: column;
-            line-height: 1.1;
+            line-height: 1.05;
         }
 
         .logo {
             color: var(--nav-text);
 
-            font-size: 1.15rem;
-            font-weight: 800;
+            font-size: 1.42rem;
+            font-weight: 900;
 
-            letter-spacing: -0.035em;
+            letter-spacing: -0.045em;
             white-space: nowrap;
-
-            transition: color 0.25s ease;
         }
 
         .logo span {
@@ -269,14 +266,14 @@
         }
 
         .brand-tagline {
-            margin-top: 5px;
+            margin-top: 7px;
 
-            font-size: 0.72rem;
-            font-weight: 600;
+            font-size: 0.82rem;
+            font-weight: 700;
 
             color: var(--nav-muted);
 
-            letter-spacing: 0.045em;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
         }
 
@@ -289,7 +286,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             flex: 1;
         }
 
@@ -297,7 +293,7 @@
             display: flex;
             align-items: center;
 
-            gap: 4px;
+            gap: 5px;
 
             list-style: none;
         }
@@ -310,15 +306,15 @@
             display: inline-flex;
             align-items: center;
 
-            gap: 7px;
+            gap: 8px;
 
-            padding: 9px 11px;
+            padding: 10px 12px;
 
             border-radius: 9px;
 
             color: var(--nav-muted);
 
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             font-weight: 600;
 
             transition:
@@ -328,14 +324,15 @@
         }
 
         .nav-link i {
-            font-size: 0.72rem;
+            font-size: 0.73rem;
         }
 
         .nav-link:hover {
             color: var(--nav-text);
             background: var(--nav-hover);
 
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
         }
 
         .nav-link.active {
@@ -369,7 +366,7 @@
             top: calc(100% + 12px);
             right: 0;
 
-            min-width: 205px;
+            min-width: 210px;
 
             padding: 8px;
 
@@ -414,7 +411,8 @@
             border-top:
                 1px solid var(--border-color);
 
-            transform: rotate(45deg);
+            transform:
+                rotate(45deg);
         }
 
         .dropdown:hover .dropdown-menu,
@@ -428,7 +426,8 @@
 
         .dropdown:hover .arrow,
         .dropdown.open .arrow {
-            transform: rotate(180deg);
+            transform:
+                rotate(180deg);
         }
 
         .dropdown-link {
@@ -439,7 +438,7 @@
 
             width: 100%;
 
-            padding: 10px 12px;
+            padding: 11px 12px;
 
             border-radius: 8px;
 
@@ -457,13 +456,15 @@
         .dropdown-link i {
             width: 18px;
             text-align: center;
-
             color: var(--primary);
         }
 
         .dropdown-link:hover {
-            background: var(--bg-card-hover);
-            color: var(--text-primary);
+            background:
+                var(--bg-card-hover);
+
+            color:
+                var(--text-primary);
 
             transform:
                 translateX(3px);
@@ -489,19 +490,18 @@
 
             gap: 7px;
 
-            padding: 9px 15px;
+            padding: 10px 16px;
 
             border-radius: 9px;
 
             background: var(--primary);
-
             color: white;
 
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             font-weight: 700;
 
             box-shadow:
-                0 6px 18px rgba(79, 70, 229, 0.28);
+                0 6px 18px rgba(124, 58, 237, 0.30);
 
             transition:
                 transform 0.25s ease,
@@ -510,13 +510,14 @@
         }
 
         .projects-btn:hover {
-            background: var(--primary-dark);
+            background:
+                var(--primary-dark);
 
             transform:
                 translateY(-2px);
 
             box-shadow:
-                0 10px 25px rgba(79, 70, 229, 0.38);
+                0 10px 25px rgba(124, 58, 237, 0.40);
         }
 
 
@@ -525,8 +526,8 @@
         ========================================================= */
 
         .theme-toggle {
-            width: 42px;
-            height: 26px;
+            width: 44px;
+            height: 28px;
 
             padding: 3px;
 
@@ -535,7 +536,8 @@
 
             border-radius: 50px;
 
-            background: var(--toggle-bg);
+            background:
+                var(--toggle-bg);
 
             cursor: pointer;
 
@@ -547,8 +549,8 @@
         }
 
         .theme-slider {
-            width: 20px;
-            height: 20px;
+            width: 21px;
+            height: 21px;
 
             display: flex;
             align-items: center;
@@ -557,7 +559,6 @@
             border-radius: 50%;
 
             background: white;
-
             color: var(--toggle-icon);
 
             font-size: 9px;
@@ -571,12 +572,16 @@
         }
 
         html.dark .theme-toggle {
-            background: #4f46e5;
+            background:
+                #7c3aed;
         }
 
         html.dark .theme-slider {
-            transform: translateX(14px);
-            background: #1e293b;
+            transform:
+                translateX(14px);
+
+            background:
+                #1e293b;
         }
 
 
@@ -585,8 +590,8 @@
         ========================================================= */
 
         .hamburger {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
 
             display: none;
 
@@ -602,7 +607,8 @@
 
             border-radius: 9px;
 
-            background: var(--nav-hover);
+            background:
+                var(--nav-hover);
 
             cursor: pointer;
         }
@@ -621,8 +627,7 @@
 
         .hamburger.open span:nth-child(1) {
             transform:
-                translateY(7px)
-                rotate(45deg);
+                translateY(7px) rotate(45deg);
         }
 
         .hamburger.open span:nth-child(2) {
@@ -631,8 +636,7 @@
 
         .hamburger.open span:nth-child(3) {
             transform:
-                translateY(-7px)
-                rotate(-45deg);
+                translateY(-7px) rotate(-45deg);
         }
 
 
@@ -640,18 +644,13 @@
            PAGE HERO
         ========================================================= */
 
-        .page-hero {
+        #about {
             position: relative;
 
-            padding:
-                85px 0 65px;
-
             overflow: hidden;
-
-            text-align: center;
         }
 
-        .page-hero::before {
+        #about::before {
             content: "";
 
             position: absolute;
@@ -659,10 +658,8 @@
             width: 600px;
             height: 600px;
 
-            top: -300px;
-            left: 50%;
-
-            transform: translateX(-50%);
+            right: -200px;
+            top: -200px;
 
             background:
                 radial-gradient(
@@ -676,52 +673,64 @@
             pointer-events: none;
         }
 
-        .page-hero-content {
+        .page-hero {
             position: relative;
+
+            padding:
+                70px 0 55px;
+
+            overflow: hidden;
+
+            text-align: center;
+
             z-index: 2;
         }
 
-        .page-badge {
+        .page-hero .badge {
             display: inline-flex;
             align-items: center;
 
-            gap: 8px;
+            gap: 7px;
 
             padding:
-                7px 14px;
+                7px 13px;
 
             margin-bottom: 18px;
 
-            background: var(--badge-bg);
-            color: var(--badge-text);
+            background:
+                var(--badge-bg);
+
+            color:
+                var(--badge-text);
 
             border:
                 1px solid var(--border-color);
 
             border-radius: 50px;
 
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             font-weight: 700;
 
             animation:
                 fadeInUp 0.7s ease both;
         }
 
-        .page-badge i {
-            font-size: 0.62rem;
+        .page-hero .badge i {
+            font-size: 0.65rem;
         }
 
         .page-hero h1 {
             font-size:
-                clamp(2.6rem, 6vw, 4.4rem);
+                clamp(2.4rem, 5vw, 4rem);
 
             line-height: 1.05;
 
-            letter-spacing: -0.055em;
+            letter-spacing:
+                -0.055em;
 
             font-weight: 900;
 
-            margin-bottom: 17px;
+            margin-bottom: 16px;
 
             animation:
                 fadeInUp 0.7s 0.1s ease both;
@@ -755,6 +764,10 @@
                 fadeInUp 0.7s 0.2s ease both;
         }
 
+        .page-hero p strong {
+            color: var(--text-primary);
+        }
+
 
         /* =========================================================
            PROFESSIONAL IDENTITY
@@ -763,6 +776,10 @@
         .identity-section {
             padding:
                 25px 0 80px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
         .section-heading {
@@ -794,7 +811,7 @@
 
             letter-spacing: -0.04em;
 
-            font-weight: 850;
+            font-weight: 900;
         }
 
         .section-heading p {
@@ -837,6 +854,17 @@
                 transform 0.3s ease,
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
+
+            animation:
+                fadeInUp 0.7s 0.3s ease both;
+        }
+
+        .identity-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .identity-card:nth-child(3) {
+            animation-delay: 0.5s;
         }
 
         .identity-card::before {
@@ -871,7 +899,7 @@
                 translateY(-7px);
 
             border-color:
-                rgba(129, 140, 248, 0.5);
+                rgba(124, 58, 237, 0.4);
 
             box-shadow:
                 var(--shadow-hover);
@@ -898,7 +926,7 @@
                 linear-gradient(
                     135deg,
                     var(--badge-bg),
-                    rgba(14, 165, 233, 0.10)
+                    rgba(6, 182, 212, 0.10)
                 );
 
             color: var(--primary);
@@ -948,6 +976,10 @@
         .profile-section {
             padding:
                 30px 0 85px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
         .profile-layout {
@@ -1004,7 +1036,7 @@
                 spinBorder 5s linear infinite;
 
             box-shadow:
-                0 0 20px rgba(79, 70, 229, 0.15);
+                0 0 20px rgba(124, 58, 237, 0.15);
         }
 
         .profile-image {
@@ -1088,6 +1120,10 @@
         .purpose-section {
             padding:
                 25px 0 85px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
         .purpose-grid {
@@ -1125,6 +1161,13 @@
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
+
+            animation:
+                fadeInUp 0.7s 0.4s ease both;
+        }
+
+        .purpose-card:nth-child(2) {
+            animation-delay: 0.5s;
         }
 
         .purpose-card:hover {
@@ -1180,7 +1223,7 @@
             font-size: 1.1rem;
 
             box-shadow:
-                0 8px 22px rgba(79, 70, 229, 0.22);
+                0 8px 22px rgba(124, 58, 237, 0.22);
         }
 
         .purpose-card h3 {
@@ -1209,6 +1252,10 @@
         .goals-section {
             padding:
                 25px 0 90px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
         .goals-grid {
@@ -1239,7 +1286,16 @@
                 transform 0.3s ease,
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
+
+            animation:
+                fadeInUp 0.7s ease both;
         }
+
+        .goal-card:nth-child(1) { animation-delay: 0.30s; }
+        .goal-card:nth-child(2) { animation-delay: 0.38s; }
+        .goal-card:nth-child(3) { animation-delay: 0.46s; }
+        .goal-card:nth-child(4) { animation-delay: 0.54s; }
+        .goal-card:nth-child(5) { animation-delay: 0.62s; }
 
         .goal-card:hover {
             transform:
@@ -1296,6 +1352,10 @@
         .motto-section {
             padding:
                 25px 0 95px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
         .motto-box {
@@ -1309,8 +1369,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(79, 70, 229, 0.10),
-                    rgba(14, 165, 233, 0.08)
+                    rgba(124, 58, 237, 0.10),
+                    rgba(6, 182, 212, 0.08)
                 );
 
             border:
@@ -1377,7 +1437,7 @@
             font-size: 1.15rem;
 
             box-shadow:
-                0 10px 25px rgba(79, 70, 229, 0.25);
+                0 10px 25px rgba(124, 58, 237, 0.25);
         }
 
         .motto-box h2 {
@@ -1439,6 +1499,10 @@
         .about-cta {
             padding:
                 0 0 90px;
+
+            position: relative;
+
+            z-index: 2;
         }
 
         .cta-inner {
@@ -1459,6 +1523,9 @@
             border-radius: 20px;
 
             box-shadow: var(--shadow);
+
+            animation:
+                fadeInUp 0.8s 0.3s ease both;
         }
 
         .cta-inner h2 {
@@ -1517,7 +1584,7 @@
                 var(--primary);
 
             box-shadow:
-                0 8px 20px rgba(79, 70, 229, 0.25);
+                0 8px 20px rgba(124, 58, 237, 0.25);
         }
 
         .btn-primary:hover {
@@ -1528,7 +1595,7 @@
                 translateY(-2px);
 
             box-shadow:
-                0 12px 28px rgba(79, 70, 229, 0.35);
+                0 12px 28px rgba(124, 58, 237, 0.35);
         }
 
         .btn-outline {
@@ -1559,7 +1626,8 @@
             padding:
                 25px 0;
 
-            text-align: center;
+            text-align:
+                center;
 
             background:
                 var(--bg-surface);
@@ -1570,7 +1638,8 @@
             color:
                 var(--text-secondary);
 
-            font-size: 0.8rem;
+            font-size:
+                0.8rem;
         }
 
         footer a {
@@ -1582,18 +1651,25 @@
         }
 
         footer a:hover {
-            opacity: 0.7;
+            opacity:
+                0.7;
         }
 
         .footer-links {
-            margin-top: 7px;
+            margin-top:
+                7px;
 
-            display: flex;
-            justify-content: center;
+            display:
+                flex;
 
-            flex-wrap: wrap;
+            justify-content:
+                center;
 
-            gap: 8px;
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
         }
 
 
@@ -1604,14 +1680,11 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-
                 transform:
                     translateY(22px);
             }
-
             to {
                 opacity: 1;
-
                 transform:
                     translateY(0);
             }
@@ -1622,12 +1695,10 @@
                 transform:
                     translateY(0);
             }
-
             50% {
                 transform:
                     translateY(-12px);
             }
-
             100% {
                 transform:
                     translateY(0);
@@ -1646,12 +1717,10 @@
                 background-position:
                     0% 50%;
             }
-
             50% {
                 background-position:
                     100% 50%;
             }
-
             100% {
                 background-position:
                     0% 50%;
@@ -1695,22 +1764,44 @@
 
         @media (max-width: 850px) {
 
-            .navbar {
-                height: 70px;
+            body {
+                padding-top:
+                    74px;
             }
 
-            body {
-                padding-top: 70px;
+            .navbar {
+                height:
+                    74px;
+
+                border-top:
+                    3px solid var(--primary);
+
+                border-bottom:
+                    3px solid var(--primary);
+            }
+
+            .logo-mark {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo {
+                font-size:
+                    1.18rem;
             }
 
             .brand-tagline {
-                display: none;
+                font-size:
+                    0.68rem;
+
+                margin-top:
+                    5px;
             }
 
             .main-nav {
                 position: fixed;
 
-                top: 70px;
+                top: 74px;
                 left: 0;
 
                 width: 100%;
@@ -1722,7 +1813,7 @@
                     var(--bg-nav);
 
                 border-bottom:
-                    1px solid var(--separator-color);
+                    3px solid var(--primary);
 
                 box-shadow:
                     0 20px 35px rgba(0, 0, 0, 0.25);
@@ -1750,10 +1841,14 @@
             .nav-links {
                 width: 100%;
 
-                flex-direction: column;
-                align-items: stretch;
+                flex-direction:
+                    column;
 
-                gap: 5px;
+                align-items:
+                    stretch;
+
+                gap:
+                    5px;
             }
 
             .nav-link {
@@ -1762,44 +1857,61 @@
                 padding:
                     12px 14px;
 
-                justify-content: flex-start;
+                justify-content:
+                    flex-start;
 
-                font-size: 0.85rem;
+                font-size:
+                    0.85rem;
             }
 
             .nav-link span {
-                display: inline;
+                display:
+                    inline;
             }
 
             .dropdown-menu {
-                position: static;
+                position:
+                    static;
 
-                width: 100%;
+                width:
+                    100%;
 
-                margin-top: 4px;
+                margin-top:
+                    4px;
 
-                padding-left: 10px;
+                padding-left:
+                    10px;
 
-                display: none;
+                display:
+                    none;
 
-                opacity: 1;
-                visibility: visible;
+                opacity:
+                    1;
 
-                transform: none;
+                visibility:
+                    visible;
 
-                box-shadow: none;
+                transform:
+                    none;
 
-                background: transparent;
+                box-shadow:
+                    none;
 
-                border: none;
+                background:
+                    transparent;
+
+                border:
+                    none;
             }
 
             .dropdown.open .dropdown-menu {
-                display: block;
+                display:
+                    block;
             }
 
             .dropdown-menu::before {
-                display: none;
+                display:
+                    none;
             }
 
             .dropdown-link {
@@ -1808,28 +1920,32 @@
             }
 
             .hamburger {
-                display: flex;
+                display:
+                    flex;
             }
 
             .projects-btn span {
-                display: none;
+                display:
+                    none;
             }
 
             .projects-btn {
-                width: 40px;
-                height: 40px;
+                width:
+                    42px;
 
-                padding: 0;
+                height:
+                    42px;
 
-                justify-content: center;
+                padding:
+                    0;
+
+                justify-content:
+                    center;
             }
-
-
-            /* PAGE */
 
             .page-hero {
                 padding:
-                    65px 0 50px;
+                    55px 0 40px;
             }
 
             .identity-grid {
@@ -1884,26 +2000,42 @@
             }
 
             .logo-mark {
-                width: 36px;
-                height: 36px;
+                width:
+                    38px;
+
+                height:
+                    38px;
             }
 
             .logo {
-                font-size: 1rem;
+                font-size:
+                    1.02rem;
+            }
+
+            .brand-tagline {
+                font-size:
+                    0.61rem;
             }
 
             .nav-actions {
-                gap: 5px;
+                gap:
+                    5px;
             }
 
             .theme-toggle {
-                width: 38px;
-                height: 24px;
+                width:
+                    38px;
+
+                height:
+                    24px;
             }
 
             .theme-slider {
-                width: 18px;
-                height: 18px;
+                width:
+                    18px;
+
+                height:
+                    18px;
             }
 
             html.dark .theme-slider {
@@ -1912,8 +2044,11 @@
             }
 
             .hamburger {
-                width: 38px;
-                height: 38px;
+                width:
+                    38px;
+
+                height:
+                    38px;
             }
 
             .page-hero h1 {
@@ -2030,68 +2165,56 @@
 
                 <ul class="nav-links">
 
-                    <!-- HOME -->
-
                     <li class="nav-item">
 
-                        <a href="index.html" class="nav-link">
+                        <a href="index.html"
+                           class="nav-link">
 
                             <i class="fas fa-house"></i>
 
-                            <span>
-                                Home
-                            </span>
+                            <span>Home</span>
 
                         </a>
 
                     </li>
 
 
-                    <!-- ABOUT -->
-
                     <li class="nav-item">
 
-                        <a href="about.html" class="nav-link active">
+                        <a href="about.html"
+                           class="nav-link active">
 
                             <i class="fas fa-user"></i>
 
-                            <span>
-                                About
-                            </span>
+                            <span>About</span>
 
                         </a>
 
                     </li>
 
 
-                    <!-- EDUCATION -->
-
                     <li class="nav-item">
 
-                        <a href="education.html" class="nav-link">
+                        <a href="education.html"
+                           class="nav-link">
 
                             <i class="fas fa-graduation-cap"></i>
 
-                            <span>
-                                Education
-                            </span>
+                            <span>Education</span>
 
                         </a>
 
                     </li>
 
 
-                    <!-- SKILLS -->
-
                     <li class="nav-item">
 
-                        <a href="skills.html" class="nav-link">
+                        <a href="skills.html"
+                           class="nav-link">
 
                             <i class="fas fa-code"></i>
 
-                            <span>
-                                Skills
-                            </span>
+                            <span>Skills</span>
 
                         </a>
 
@@ -2100,18 +2223,16 @@
 
                     <!-- MORE -->
 
-                    <li class="nav-item dropdown" id="moreDropdown">
+                    <li class="nav-item dropdown"
+                        id="moreDropdown">
 
-                        <a
-                            href="javascript:void(0)"
-                            class="nav-link dropdown-toggle"
-                            id="moreToggle">
+                        <a href="#"
+                           class="nav-link dropdown-toggle"
+                           id="moreToggle">
 
                             <i class="fas fa-layer-group"></i>
 
-                            <span>
-                                More
-                            </span>
+                            <span>More</span>
 
                             <i class="fas fa-chevron-down arrow"></i>
 
@@ -2120,67 +2241,52 @@
 
                         <div class="dropdown-menu">
 
-                            <a
-                                href="projects.html"
-                                class="dropdown-link">
+                            <a href="projects.html"
+                               class="dropdown-link">
 
                                 <i class="fas fa-folder-open"></i>
 
-                                <span>
-                                    Projects
-                                </span>
+                                <span>Projects</span>
 
                             </a>
 
 
-                            <a
-                                href="certificates.html"
-                                class="dropdown-link">
+                            <a href="certificates.html"
+                               class="dropdown-link">
 
                                 <i class="fas fa-certificate"></i>
 
-                                <span>
-                                    Certificates
-                                </span>
+                                <span>Certificates</span>
 
                             </a>
 
 
-                            <a
-                                href="cv.html"
-                                class="dropdown-link">
+                            <a href="cv.html"
+                               class="dropdown-link">
 
                                 <i class="fas fa-file-lines"></i>
 
-                                <span>
-                                    Curriculum Vitae
-                                </span>
+                                <span>Curriculum Vitae</span>
 
                             </a>
 
 
-                            <a
-                                href="cover-letters.html"
-                                class="dropdown-link">
+                            <a href="cover-letters.html"
+                               class="dropdown-link">
 
                                 <i class="fas fa-envelope"></i>
 
-                                <span>
-                                    Cover Letters
-                                </span>
+                                <span>Cover Letters</span>
 
                             </a>
 
 
-                            <a
-                                href="contact.html"
-                                class="dropdown-link">
+                            <a href="contact.html"
+                               class="dropdown-link">
 
                                 <i class="fas fa-address-card"></i>
 
-                                <span>
-                                    Contact Me
-                                </span>
+                                <span>Contact Me</span>
 
                             </a>
 
@@ -2197,15 +2303,12 @@
 
             <div class="nav-actions">
 
-                <a
-                    href="projects.html"
-                    class="projects-btn">
+                <a href="projects.html"
+                   class="projects-btn">
 
                     <i class="fas fa-folder-open"></i>
 
-                    <span>
-                        Projects
-                    </span>
+                    <span>Projects</span>
 
                 </a>
 
@@ -2251,620 +2354,624 @@
 
 
     <!-- =========================================================
-         PAGE HERO
+         ABOUT PAGE
     ========================================================= -->
 
     <main>
 
-        <section class="page-hero">
+        <section id="about">
 
-            <div class="container page-hero-content">
+            <!-- HERO -->
 
-                <span class="page-badge">
+            <div class="page-hero">
 
-                    <i class="fas fa-user-circle"></i>
+                <div class="container">
 
-                    Get to know me
+                    <span class="badge">
 
-                </span>
+                        <i class="fas fa-user-circle"></i>
 
+                        Get to know me
 
-                <h1>
-
-                    About
-
-                    <span class="gradient-text">
-                        Me
                     </span>
 
-                </h1>
+                    <h1>
 
+                        About
 
-                <p>
+                        <span class="gradient-text">
+                            Me
+                        </span>
 
-                    I'm Katleho Malefane — a
-
-                    <strong>
-                        Software Engineer
-                    </strong>,
-
-                    <strong>
-                        Data Analyst
-                    </strong>
-
-                    and
-
-                    <strong>
-                        Full-Stack Developer
-                    </strong>
-
-                    passionate about turning ideas,
-                    data and challenges into meaningful
-                    digital solutions.
-
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PROFESSIONAL IDENTITY
-        ===================================================== -->
-
-        <section class="identity-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="eyebrow">
-                        My Professional Identity
-                    </span>
-
-                    <h2>
-                        What I Do
-                    </h2>
+                    </h1>
 
                     <p>
-                        Three areas that define my approach
-                        to technology and problem solving.
+
+                        I'm Katleho Malefane — a
+
+                        <strong>
+                            Software Engineer
+                        </strong>,
+
+                        <strong>
+                            Data Analyst
+                        </strong>
+
+                        and
+
+                        <strong>
+                            Full-Stack Developer
+                        </strong>
+
+                        passionate about turning ideas,
+                        data and challenges into meaningful
+                        digital solutions.
+
                     </p>
 
                 </div>
 
+            </div>
 
-                <div class="identity-grid">
 
-                    <!-- SOFTWARE ENGINEER -->
+            <!-- =====================================================
+                 PROFESSIONAL IDENTITY
+            ===================================================== -->
 
-                    <article class="identity-card">
+            <section class="identity-section">
 
-                        <span class="identity-number">
-                            01
+                <div class="container">
+
+                    <div class="section-heading">
+
+                        <span class="eyebrow">
+                            My Professional Identity
                         </span>
 
-                        <div class="identity-icon">
-
-                            <i class="fas fa-laptop-code"></i>
-
-                        </div>
-
-                        <h3>
-                            Software Engineer
-                        </h3>
+                        <h2>
+                            What I Do
+                        </h2>
 
                         <p>
-                            I design, develop and maintain
-                            practical software solutions
-                            that address real-world problems
-                            while focusing on reliability,
-                            usability and performance.
+                            Three areas that define my approach
+                            to technology and problem solving.
                         </p>
 
-                    </article>
+                    </div>
 
 
-                    <!-- DATA ANALYST -->
+                    <div class="identity-grid">
 
-                    <article class="identity-card">
+                        <!-- SOFTWARE ENGINEER -->
 
-                        <span class="identity-number">
-                            02
-                        </span>
+                        <article class="identity-card">
 
-                        <div class="identity-icon">
+                            <span class="identity-number">
+                                01
+                            </span>
 
-                            <i class="fas fa-chart-line"></i>
+                            <div class="identity-icon">
 
-                        </div>
+                                <i class="fas fa-laptop-code"></i>
 
-                        <h3>
-                            Data Analyst
-                        </h3>
+                            </div>
 
-                        <p>
-                            I analyse, interpret and
-                            communicate data to uncover
-                            meaningful patterns, generate
-                            insights and support informed
-                            decision-making.
-                        </p>
+                            <h3>
+                                Software Engineer
+                            </h3>
 
-                    </article>
+                            <p>
+                                I design, develop and maintain
+                                practical software solutions
+                                that address real-world problems
+                                while focusing on reliability,
+                                usability and performance.
+                            </p>
+
+                        </article>
 
 
-                    <!-- FULL STACK -->
+                        <!-- DATA ANALYST -->
 
-                    <article class="identity-card">
+                        <article class="identity-card">
 
-                        <span class="identity-number">
-                            03
-                        </span>
+                            <span class="identity-number">
+                                02
+                            </span>
 
-                        <div class="identity-icon">
+                            <div class="identity-icon">
 
-                            <i class="fas fa-layer-group"></i>
+                                <i class="fas fa-chart-line"></i>
 
-                        </div>
+                            </div>
 
-                        <h3>
-                            Full-Stack Developer
-                        </h3>
+                            <h3>
+                                Data Analyst
+                            </h3>
 
-                        <p>
-                            I build complete web applications,
-                            combining responsive front-end
-                            interfaces with powerful back-end
-                            functionality and data solutions.
-                        </p>
+                            <p>
+                                I analyse, interpret and
+                                communicate data to uncover
+                                meaningful patterns, generate
+                                insights and support informed
+                                decision-making.
+                            </p>
 
-                    </article>
+                        </article>
+
+
+                        <!-- FULL STACK -->
+
+                        <article class="identity-card">
+
+                            <span class="identity-number">
+                                03
+                            </span>
+
+                            <div class="identity-icon">
+
+                                <i class="fas fa-layer-group"></i>
+
+                            </div>
+
+                            <h3>
+                                Full-Stack Developer
+                            </h3>
+
+                            <p>
+                                I build complete web applications,
+                                combining responsive front-end
+                                interfaces with powerful back-end
+                                functionality and data solutions.
+                            </p>
+
+                        </article>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- =====================================================
-             WHO I AM
-        ===================================================== -->
+            <!-- =====================================================
+                 WHO I AM
+            ===================================================== -->
 
-        <section class="profile-section">
+            <section class="profile-section">
 
-            <div class="container">
+                <div class="container">
 
-                <div class="profile-layout">
+                    <div class="profile-layout">
 
 
-                    <!-- IMAGE -->
+                        <!-- IMAGE -->
 
-                    <div class="profile-image-area">
+                        <div class="profile-image-area">
 
-                        <div class="profile-frame">
+                            <div class="profile-frame">
 
-                            <div class="profile-image">
+                                <div class="profile-image">
 
-                                <img
-                                    src="image/img_2.jpeg"
-                                    alt="Katleho Malefane - Software Engineer"
-                                    loading="lazy">
+                                    <img
+                                        src="image/img_2.jpeg"
+                                        alt="Katleho Malefane - Software Engineer"
+                                        loading="lazy">
+
+                                </div>
 
                             </div>
 
                         </div>
 
+
+                        <!-- CONTENT -->
+
+                        <div class="profile-content">
+
+                            <div class="section-heading">
+
+                                <span class="eyebrow">
+                                    Who I Am
+                                </span>
+
+                                <h2>
+                                    Building. Analysing.
+                                    <span class="gradient-text">
+                                        Creating.
+                                    </span>
+                                </h2>
+
+                                <p>
+                                    Technology is more than code —
+                                    it's a tool for solving problems.
+                                </p>
+
+                            </div>
+
+
+                            <p class="profile-text">
+
+                                I am a passionate technology
+                                professional with a strong interest
+                                in software engineering, data
+                                analysis and full-stack development.
+
+                            </p>
+
+
+                            <p class="profile-text">
+
+                                I enjoy taking an idea or a problem,
+                                understanding what is needed,
+                                designing a solution and turning it
+                                into a functional digital product.
+
+                            </p>
+
+
+                            <p class="profile-text">
+
+                                My approach combines
+
+                                <span class="profile-highlight">
+                                    technical development,
+                                    analytical thinking and
+                                    continuous learning
+                                </span>
+
+                                to create solutions that are
+                                practical, user-friendly and
+                                capable of making a meaningful
+                                difference.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 MISSION & VISION
+            ===================================================== -->
+
+            <section class="purpose-section">
+
+                <div class="container">
+
+                    <div class="section-heading">
+
+                        <span class="eyebrow">
+                            Direction & Purpose
+                        </span>
+
+                        <h2>
+                            Mission & Vision
+                        </h2>
+
+                        <p>
+                            What drives me today and where I am
+                            working towards tomorrow.
+                        </p>
+
                     </div>
 
 
-                    <!-- CONTENT -->
+                    <div class="purpose-grid">
 
-                    <div class="profile-content">
 
-                        <div class="section-heading">
+                        <!-- MISSION -->
 
-                            <span class="eyebrow">
-                                Who I Am
-                            </span>
+                        <article class="purpose-card">
+
+                            <div class="purpose-icon">
+
+                                <i class="fas fa-bullseye"></i>
+
+                            </div>
+
+                            <h3>
+                                My Mission
+                            </h3>
+
+                            <p>
+
+                                To design and develop innovative,
+                                reliable and user-focused technology
+                                solutions that solve real-world
+                                problems and create meaningful
+                                impact.
+
+                            </p>
+
+                        </article>
+
+
+                        <!-- VISION -->
+
+                        <article class="purpose-card">
+
+                            <div class="purpose-icon">
+
+                                <i class="fas fa-eye"></i>
+
+                            </div>
+
+                            <h3>
+                                My Vision
+                            </h3>
+
+                            <p>
+
+                                To become a highly skilled technology
+                                professional who uses software,
+                                data and innovation to contribute to
+                                a smarter, more connected and
+                                digitally empowered future.
+
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 GOALS
+            ===================================================== -->
+
+            <section class="goals-section">
+
+                <div class="container">
+
+                    <div class="section-heading">
+
+                        <span class="eyebrow">
+                            My Direction
+                        </span>
+
+                        <h2>
+                            Professional Goals
+                        </h2>
+
+                        <p>
+                            The principles that guide my growth
+                            as a technology professional.
+                        </p>
+
+                    </div>
+
+
+                    <div class="goals-grid">
+
+
+                        <!-- BUILD -->
+
+                        <article class="goal-card">
+
+                            <div class="goal-icon">
+
+                                <i class="fas fa-code"></i>
+
+                            </div>
+
+                            <h3>
+                                Build
+                            </h3>
+
+                            <p>
+                                Develop impactful and scalable
+                                software solutions.
+                            </p>
+
+                        </article>
+
+
+                        <!-- GROW -->
+
+                        <article class="goal-card">
+
+                            <div class="goal-icon">
+
+                                <i class="fas fa-arrow-trend-up"></i>
+
+                            </div>
+
+                            <h3>
+                                Grow
+                            </h3>
+
+                            <p>
+                                Continuously improve my technical
+                                and analytical skills.
+                            </p>
+
+                        </article>
+
+
+                        <!-- LEARN -->
+
+                        <article class="goal-card">
+
+                            <div class="goal-icon">
+
+                                <i class="fas fa-book-open"></i>
+
+                            </div>
+
+                            <h3>
+                                Learn
+                            </h3>
+
+                            <p>
+                                Explore emerging technologies
+                                and modern development approaches.
+                            </p>
+
+                        </article>
+
+
+                        <!-- IMPACT -->
+
+                        <article class="goal-card">
+
+                            <div class="goal-icon">
+
+                                <i class="fas fa-globe"></i>
+
+                            </div>
+
+                            <h3>
+                                Impact
+                            </h3>
+
+                            <p>
+                                Use technology and data to solve
+                                meaningful real-world problems.
+                            </p>
+
+                        </article>
+
+
+                        <!-- INNOVATE -->
+
+                        <article class="goal-card">
+
+                            <div class="goal-icon">
+
+                                <i class="fas fa-lightbulb"></i>
+
+                            </div>
+
+                            <h3>
+                                Innovate
+                            </h3>
+
+                            <p>
+                                Turn ideas into practical digital
+                                solutions.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 MOTTO
+            ===================================================== -->
+
+            <section class="motto-section">
+
+                <div class="container">
+
+                    <div class="motto-box">
+
+                        <div class="quote-icon">
+
+                            <i class="fas fa-quote-left"></i>
+
+                        </div>
+
+
+                        <h2>
+
+                            If You Never
+
+                            <span>
+                                Try
+                            </span>,
+
+                            You'll Never
+
+                            <span>
+                                Know
+                            </span>.
+
+                        </h2>
+
+
+                        <p>
+
+                            Every attempt is an opportunity
+                            to learn, improve, discover and grow.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 CTA
+            ===================================================== -->
+
+            <section class="about-cta">
+
+                <div class="container">
+
+                    <div class="cta-inner">
+
+                        <div>
 
                             <h2>
-                                Building. Analysing.
-                                <span class="gradient-text">
-                                    Creating.
-                                </span>
+                                Let's Build Something Meaningful.
                             </h2>
 
                             <p>
-                                Technology is more than code —
-                                it's a tool for solving problems.
+                                Explore my work, skills and
+                                professional journey.
                             </p>
 
                         </div>
 
 
-                        <p class="profile-text">
+                        <div class="cta-buttons">
 
-                            I am a passionate technology
-                            professional with a strong interest
-                            in software engineering, data
-                            analysis and full-stack development.
+                            <a
+                                href="projects.html"
+                                class="btn btn-primary">
 
-                        </p>
+                                <i class="fas fa-folder-open"></i>
 
+                                View Projects
 
-                        <p class="profile-text">
-
-                            I enjoy taking an idea or a problem,
-                            understanding what is needed,
-                            designing a solution and turning it
-                            into a functional digital product.
-
-                        </p>
+                            </a>
 
 
-                        <p class="profile-text">
+                            <a
+                                href="contact.html"
+                                class="btn btn-outline">
 
-                            My approach combines
+                                <i class="fas fa-paper-plane"></i>
 
-                            <span class="profile-highlight">
-                                technical development,
-                                analytical thinking and
-                                continuous learning
-                            </span>
+                                Contact Me
 
-                            to create solutions that are
-                            practical, user-friendly and
-                            capable of making a meaningful
-                            difference.
+                            </a>
 
-                        </p>
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             MISSION & VISION
-        ===================================================== -->
-
-        <section class="purpose-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="eyebrow">
-                        Direction & Purpose
-                    </span>
-
-                    <h2>
-                        Mission & Vision
-                    </h2>
-
-                    <p>
-                        What drives me today and where I am
-                        working towards tomorrow.
-                    </p>
-
-                </div>
-
-
-                <div class="purpose-grid">
-
-
-                    <!-- MISSION -->
-
-                    <article class="purpose-card">
-
-                        <div class="purpose-icon">
-
-                            <i class="fas fa-bullseye"></i>
-
-                        </div>
-
-                        <h3>
-                            My Mission
-                        </h3>
-
-                        <p>
-
-                            To design and develop innovative,
-                            reliable and user-focused technology
-                            solutions that solve real-world
-                            problems and create meaningful
-                            impact.
-
-                        </p>
-
-                    </article>
-
-
-                    <!-- VISION -->
-
-                    <article class="purpose-card">
-
-                        <div class="purpose-icon">
-
-                            <i class="fas fa-eye"></i>
-
-                        </div>
-
-                        <h3>
-                            My Vision
-                        </h3>
-
-                        <p>
-
-                            To become a highly skilled technology
-                            professional who uses software,
-                            data and innovation to contribute to
-                            a smarter, more connected and
-                            digitally empowered future.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             GOALS
-        ===================================================== -->
-
-        <section class="goals-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="eyebrow">
-                        My Direction
-                    </span>
-
-                    <h2>
-                        Professional Goals
-                    </h2>
-
-                    <p>
-                        The principles that guide my growth
-                        as a technology professional.
-                    </p>
-
-                </div>
-
-
-                <div class="goals-grid">
-
-
-                    <!-- BUILD -->
-
-                    <article class="goal-card">
-
-                        <div class="goal-icon">
-
-                            <i class="fas fa-code"></i>
-
-                        </div>
-
-                        <h3>
-                            Build
-                        </h3>
-
-                        <p>
-                            Develop impactful and scalable
-                            software solutions.
-                        </p>
-
-                    </article>
-
-
-                    <!-- GROW -->
-
-                    <article class="goal-card">
-
-                        <div class="goal-icon">
-
-                            <i class="fas fa-arrow-trend-up"></i>
-
-                        </div>
-
-                        <h3>
-                            Grow
-                        </h3>
-
-                        <p>
-                            Continuously improve my technical
-                            and analytical skills.
-                        </p>
-
-                    </article>
-
-
-                    <!-- LEARN -->
-
-                    <article class="goal-card">
-
-                        <div class="goal-icon">
-
-                            <i class="fas fa-book-open"></i>
-
-                        </div>
-
-                        <h3>
-                            Learn
-                        </h3>
-
-                        <p>
-                            Explore emerging technologies
-                            and modern development approaches.
-                        </p>
-
-                    </article>
-
-
-                    <!-- IMPACT -->
-
-                    <article class="goal-card">
-
-                        <div class="goal-icon">
-
-                            <i class="fas fa-globe"></i>
-
-                        </div>
-
-                        <h3>
-                            Impact
-                        </h3>
-
-                        <p>
-                            Use technology and data to solve
-                            meaningful real-world problems.
-                        </p>
-
-                    </article>
-
-
-                    <!-- INNOVATE -->
-
-                    <article class="goal-card">
-
-                        <div class="goal-icon">
-
-                            <i class="fas fa-lightbulb"></i>
-
-                        </div>
-
-                        <h3>
-                            Innovate
-                        </h3>
-
-                        <p>
-                            Turn ideas into practical digital
-                            solutions.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             MOTTO
-        ===================================================== -->
-
-        <section class="motto-section">
-
-            <div class="container">
-
-                <div class="motto-box">
-
-                    <div class="quote-icon">
-
-                        <i class="fas fa-quote-left"></i>
-
-                    </div>
-
-
-                    <h2>
-
-                        If You Never
-
-                        <span>
-                            Try
-                        </span>,
-
-                        You'll Never
-
-                        <span>
-                            Know
-                        </span>.
-
-                    </h2>
-
-
-                    <p>
-
-                        Every attempt is an opportunity
-                        to learn, improve, discover and grow.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CTA
-        ===================================================== -->
-
-        <section class="about-cta">
-
-            <div class="container">
-
-                <div class="cta-inner">
-
-                    <div>
-
-                        <h2>
-                            Let's Build Something Meaningful.
-                        </h2>
-
-                        <p>
-                            Explore my work, skills and
-                            professional journey.
-                        </p>
-
-                    </div>
-
-
-                    <div class="cta-buttons">
-
-                        <a
-                            href="projects.html"
-                            class="btn btn-primary">
-
-                            <i class="fas fa-folder-open"></i>
-
-                            View Projects
-
-                        </a>
-
-
-                        <a
-                            href="contact.html"
-                            class="btn btn-outline">
-
-                            <i class="fas fa-paper-plane"></i>
-
-                            Contact Me
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            </section>
 
         </section>
 
@@ -2895,57 +3002,39 @@
 
             <div class="footer-links">
 
-                <a href="index.html">
-                    Home
-                </a>
+                <a href="index.html">Home</a>
 
                 <span>·</span>
 
-                <a href="about.html">
-                    About
-                </a>
+                <a href="about.html">About</a>
 
                 <span>·</span>
 
-                <a href="education.html">
-                    Education
-                </a>
+                <a href="education.html">Education</a>
 
                 <span>·</span>
 
-                <a href="skills.html">
-                    Skills
-                </a>
+                <a href="skills.html">Skills</a>
 
                 <span>·</span>
 
-                <a href="projects.html">
-                    Projects
-                </a>
+                <a href="projects.html">Projects</a>
 
                 <span>·</span>
 
-                <a href="certificates.html">
-                    Certificates
-                </a>
+                <a href="certificates.html">Certificates</a>
 
                 <span>·</span>
 
-                <a href="cv.html">
-                    CV
-                </a>
+                <a href="cv.html">CV</a>
 
                 <span>·</span>
 
-                <a href="cover-letters.html">
-                    Cover Letters
-                </a>
+                <a href="cover-letters.html">Cover Letters</a>
 
                 <span>·</span>
 
-                <a href="contact.html">
-                    Contact
-                </a>
+                <a href="contact.html">Contact</a>
 
             </div>
 
@@ -3079,12 +3168,10 @@
                     const isOpen =
                         mainNav.classList.toggle("open");
 
-
                     hamburger.classList.toggle(
                         "open",
                         isOpen
                     );
-
 
                     hamburger.setAttribute(
                         "aria-expanded",
@@ -3241,4 +3328,3 @@
 </body>
 
 </html>
-```
