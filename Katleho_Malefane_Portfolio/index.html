@@ -1034,7 +1034,7 @@
 
 
         /* =========================================================
-           HERO IMAGE — SLOWER ROTATION
+           HERO IMAGE — PICTURE SPINS + BORDER SPINS
         ========================================================= */
 
         .hero-visual {
@@ -1060,7 +1060,7 @@
                 float 6s ease-in-out infinite;
         }
 
-        /* SLOWER BORDER ROTATION: 12 seconds (was 5s) */
+        /* BORDER SPINS (12s) */
         .avatar-wrapper::before {
             content: "";
 
@@ -1108,6 +1108,7 @@
                 0 25px 60px rgba(0, 0, 0, 0.18);
         }
 
+        /* ----- PICTURE SPINS (20s) ----- */
         .hero-avatar img {
             width: 100%;
             height: 100%;
@@ -1115,6 +1116,19 @@
             display: block;
 
             object-fit: cover;
+
+            animation:
+                spinImage 20s linear infinite;
+        }
+
+        /* ----- PICTURE PAUSES ON HOVER ----- */
+        .hero-avatar:hover img {
+            animation-play-state: paused;
+        }
+
+        /* ----- BORDER PAUSES ON HOVER ----- */
+        .avatar-wrapper:hover::before {
+            animation-play-state: paused;
         }
 
 
@@ -1204,8 +1218,17 @@
             }
         }
 
-        /* SLOWER SPIN (12s) */
+        /* BORDER SPIN (12s) */
         @keyframes spinBorder {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+        /* IMAGE SPIN (20s) — SLOW AND SMOOTH */
+        @keyframes spinImage {
 
             to {
                 transform:
@@ -1897,7 +1920,7 @@
                     </p>
 
 
-                    <!-- SOCIAL MEDIA — UPDATED: LinkedIn, WhatsApp, Call (Facebook removed) -->
+                    <!-- SOCIAL MEDIA: LinkedIn, WhatsApp, Call -->
 
                     <div class="hero-social">
 
@@ -1960,7 +1983,7 @@
                 </div>
 
 
-                <!-- PROFILE IMAGE -->
+                <!-- PROFILE IMAGE — SPINNING PICTURE -->
 
                 <div class="hero-visual">
 
