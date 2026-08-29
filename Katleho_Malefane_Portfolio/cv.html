@@ -195,7 +195,7 @@
 
 
         /* =========================================================
-           BRAND
+           BRAND — WITH IMAGE LOGO
         ========================================================= */
 
         .nav-brand {
@@ -205,9 +205,10 @@
             flex-shrink: 0;
         }
 
+        /* ----- IMAGE LOGO (LARGER) ----- */
         .logo-mark {
-            width: 48px;
-            height: 48px;
+            width: 58px;
+            height: 58px;
 
             display: flex;
             align-items: center;
@@ -215,24 +216,24 @@
 
             border-radius: 12px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
+            overflow: hidden;
 
-            color: white;
+            background: transparent;
 
-            font-weight: 900;
-            font-size: 1rem;
-
-            box-shadow:
-                0 8px 22px rgba(124, 58, 237, 0.35);
+            flex-shrink: 0;
 
             transition:
                 transform 0.25s ease,
                 box-shadow 0.25s ease;
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
         }
 
         .logo-mark:hover {
@@ -240,7 +241,7 @@
                 translateY(-2px) scale(1.04);
 
             box-shadow:
-                0 12px 28px rgba(124, 58, 237, 0.45);
+                0 12px 28px rgba(124, 58, 237, 0.30);
         }
 
         .brand-info {
@@ -1099,8 +1100,8 @@
             }
 
             .logo-mark {
-                width: 42px;
-                height: 42px;
+                width: 50px;
+                height: 50px;
             }
 
             .logo {
@@ -1292,10 +1293,10 @@
 
             .logo-mark {
                 width:
-                    38px;
+                    44px;
 
                 height:
-                    38px;
+                    44px;
             }
 
             .logo {
@@ -1398,7 +1399,7 @@
 
 
 <!-- =========================================================
-     NAVIGATION
+     NAVIGATION — WITH IMAGE LOGO
 ========================================================= -->
 
 <nav class="navbar" id="navbar">
@@ -1410,7 +1411,7 @@
         <div class="nav-brand">
 
             <a href="index.html" class="logo-mark">
-                KM
+                <img src="image/img_logo.png" alt="Katleho Malefane Logo">
             </a>
 
             <div class="brand-info">
