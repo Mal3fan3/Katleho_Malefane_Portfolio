@@ -169,10 +169,7 @@
 
             background: var(--bg-nav);
 
-            /* PURPLE LINE ABOVE */
             border-top: 3px solid var(--primary);
-
-            /* PURPLE LINE BELOW */
             border-bottom: 3px solid var(--primary);
 
             z-index: 9999;
@@ -273,9 +270,6 @@
         .logo {
             color: var(--nav-text);
 
-            /*
-             * INCREASED FONT SIZE
-             */
             font-size: 1.42rem;
 
             font-weight: 900;
@@ -300,9 +294,6 @@
         .brand-tagline {
             margin-top: 7px;
 
-            /*
-             * INCREASED FONT SIZE
-             */
             font-size: 0.82rem;
 
             font-weight: 700;
@@ -898,7 +889,7 @@
 
 
         /* =========================================================
-           SOCIAL LINKS
+           SOCIAL LINKS — UPDATED
         ========================================================= */
 
         .hero-social {
@@ -1043,7 +1034,7 @@
 
 
         /* =========================================================
-           HERO IMAGE
+           HERO IMAGE — SLOWER ROTATION
         ========================================================= */
 
         .hero-visual {
@@ -1069,6 +1060,7 @@
                 float 6s ease-in-out infinite;
         }
 
+        /* SLOWER BORDER ROTATION: 12 seconds (was 5s) */
         .avatar-wrapper::before {
             content: "";
 
@@ -1088,7 +1080,7 @@
                 );
 
             animation:
-                spinBorder 5s linear infinite;
+                spinBorder 12s linear infinite;
 
             box-shadow:
                 0 0 18px rgba(124, 58, 237, 0.14);
@@ -1212,6 +1204,7 @@
             }
         }
 
+        /* SLOWER SPIN (12s) */
         @keyframes spinBorder {
 
             to {
@@ -1904,11 +1897,12 @@
                     </p>
 
 
-                    <!-- SOCIAL MEDIA -->
+                    <!-- SOCIAL MEDIA — UPDATED: LinkedIn, WhatsApp, Call (Facebook removed) -->
 
                     <div class="hero-social">
 
-                        <a href="#"
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/katleho-malefane-672708303?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                            target="_blank"
                            rel="noopener noreferrer"
                            aria-label="LinkedIn">
@@ -1917,18 +1911,8 @@
 
                         </a>
 
-
-                        <a href="#"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           aria-label="Facebook">
-
-                            <i class="fab fa-facebook-f"></i>
-
-                        </a>
-
-
-                        <a href="#"
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/26659483852"
                            target="_blank"
                            rel="noopener noreferrer"
                            aria-label="WhatsApp">
@@ -1937,8 +1921,8 @@
 
                         </a>
 
-
-                        <a href="tel:+26600000000"
+                        <!-- Phone Call -->
+                        <a href="tel:+26659483852"
                            aria-label="Call me">
 
                             <i class="fas fa-phone"></i>
